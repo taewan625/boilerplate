@@ -1,0 +1,129 @@
+.wrap-loading{ /*占쎌넅筌롳옙 占쎌읈筌ｋ�占쏙옙 占쎈선占쎈ぜ野껓옙 占쎈�占쎈빍占쎈뼄.*/
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.2);
+    z-index: 999999999;
+}
+.wrap-loading div{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -119px;
+    margin-top: -117px;
+}
+
+
+.form-control.error, .form-select.error{
+    border: 1px solid #ff3e1d;: ;
+}
+
+.input-bottom-line{
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.row-selected {
+    background-color: #f0f8ff !important; /* 연한 파란색 */
+}
+
+.sales-category {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sales-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sales-item:last-child {
+    border-bottom: none;
+}
+
+.sales-item h6 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.sales-item small {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.sales-amount {
+    font-weight: bold;
+    color: #008FFB;
+    text-align: right;
+}
+
+.sales-amount-total {
+    font-weight: bold;
+    color: #FF8989;
+    text-align: right;
+}
+
+.form-p-plaintext {
+    display: block;
+    width: 100%;
+    padding: 0.4375rem 0;
+    margin-bottom: 0;
+    line-height: 1.53;
+    color: #697a8d;
+    background-color: transparent;
+}
+
+.fixed-textarea {
+    resize: none;
+}
+
+.p-label{
+    font-size: 0.75rem;
+    letter-spacing: inherit;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #566a7f;
+}
+
+.search-form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: inherit;
+    line-height: 1.53;
+    margin: auto;
+    color: #566a7f;
+}
+
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: white;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #28a745;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.avatar.avatar-online:after{
+    bottom: 2px;
+    right: -7px;
+}
+
+.text-muted-red {
+    --bs-text-opacity: 1;
+    color: #fc2d2d !important;
+}

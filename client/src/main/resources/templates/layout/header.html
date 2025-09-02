@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="header-fragment">
+    <!--/* 1. menu */-->
+    <header class="fixed-top bg-white" id="header">
+        <!--/* 1.1. web menu */-->
+        <div class="d-flex justify-content-center border-bottom" id="menu">
+            <div class="d-flex justify-content-between align-items-center header__layout">
+                <!--/* logo */-->
+                <a href="/"><img src="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/logo/bangkok-horizontal.webp" alt="logo" class="component__logo-img-size" draggable="false"/></a>
+
+                <!--/* web menu */-->
+                <nav class="accordion-flush d-none d-md-flex cursor-pointer header__web-menu-size" id="webMenu">
+                    <!--/*1 depth 메뉴 */-->
+                    <div th:each="menu, state : ${menus}" class="header__web-menu">
+                        <div class="d-flex justify-content-center align-items-center fw-bold h-100" th:text="${menu.name}"></div>
+                        <div class="list-group position-absolute d-flex flex-column align-items-center w-100 py-3 js-evt__subWebMenu header__sub-web-menu">
+                            <!--/*2 depth 메뉴 */-->
+                            <div th:each="sub : ${menu.subMenus}">
+                                <a th:attr="target=${sub.linkTargetCode}" th:href="@{${sub.url}}" class="list-group-item small px-0 py-2 fw-medium" th:text="${sub.name}"></a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!--/* 1.2. mobile menu button */-->
+                <div class="d-block d-md-none">
+                    <img class="cursor-pointer header__mobile-menu-btn--open" id="mobileMenuOpenButton" src="/static/img/icons/menu.svg" width="20" height="20" draggable="false" data-mobile-menu-open="0" data-bs-toggle="collapse" data-bs-target="#mobileMenuCollapse" aria-expanded="false" aria-controls="mobileMenuCollapse" />
+                    <img class="cursor-pointer header__mobile-menu-btn--close" id="mobileMenuCloseButton" src="/static/img/icons/close.svg" width="20" height="20" draggable="false" data-mobile-menu-open="0" data-bs-toggle="collapse" data-bs-target="#mobileMenuCollapse" aria-expanded="false" aria-controls="mobileMenuCollapse" />
+                </div>
+            </div>
+        </div>
+
+        <!--/* 1.1. web menu mask */-->
+        <div class="header__web-menu-mask" id="webHoverMenu"></div>
+
+        <!--/* 1.2. mobile menu */-->
+        <div class="collapse d-md-none position-absolute w-100" id="mobileMenuCollapse">
+            <div class="bg-white header__mobile-menu" id="showHideMobileMenu">
+                <div class="accordion accordion-flush" id="mobileMenuAccordionFlush">
+                    <!--/* mobile menu: 1depth + 2depth */-->
+                    <!--/* 아코디언 비활성화: class="accordion-button collapsed", aria-expanded="false", class="accordion-collapse collapse"
+                         아코디언 활성화: class="accordion-button", aria-expanded="true", class="accordion-collapse collapse show" */-->
+
+                    <div th:each="menu, state : ${menus}" class="accordion-item border-0">
+                        <!--/* 1depth menu */-->
+                        <h2 class="accordion-header">
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" th:attr="data-bs-target='#' + 'mobileOneDepth' + ${menu.id}" th:attrappend="aria-controls='mobileOneDepth' + ${menu.id}" aria-expanded="false" th:text="${menu.name}"></button>
+                        </h2>
+
+                        <!--/* 2depth menu */-->
+                        <div class="accordion-collapse collapse" th:id="'mobileOneDepth' + ${menu.id}" data-bs-parent="#mobileMenuAccordionFlush">
+                            <div class="list-group">
+                                <a th:each="sub : ${menu.subMenus}" th:attr="target=${sub.linkTargetCode}" th:href="@{${sub.url}}" class="list-group-item list-group-item-action ps-4 small fw-medium" th:text="${sub.name}"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--/* 2. banner*/-->
+    <div th:unless="${currentUrl == '/' or #lists.isEmpty(currentMenus)}" class="header__banner-container">
+        <!--/* 배너이미지 */-->
+        <!--/* 임시 주석처리
+        <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/banner/banner1.webp" class="header__banner-img" alt="bannderImage" draggable="false"/>
+        */-->
+        <div th:if="${not #lists.isEmpty(currentMenus)}" th:text="${currentMenus[currentMenus.size() - 1].name}" class="header__banner-title"></div>
+    </div>
+
+    <!--/* 3. breadcrumb */-->
+    <nav th:unless="${currentUrl == '/' or #lists.isEmpty(currentMenus)}" class="d-flex justify-content-center align-items-center border-bottom" style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+        <ol class="breadcrumb header__layout py-3 mb-0">
+            <li th:each="menu, iterStat : ${currentMenus}" class="breadcrumb-item" th:classappend="${iterStat.last} ? 'active'" th:attr="aria-current=${iterStat.last} ? 'page' : null">
+                <a th:if="${!iterStat.last}"
+                   th:href="${menu.url != null && !#strings.isEmpty(menu.url) ? menu.url : '/'}"
+                   th:text="${menu.name}">
+                </a>
+                <!--/* 마지막 depth의 경우 span으로 표출 */-->
+                <span th:if="${iterStat.last}" th:text="${menu.name}"></span>
+            </li>
+        </ol>
+    </nav>
+
+    <script th:inline="javascript" defer>
+        /*<![CDATA[*/   const currentMenus = /*[[${ currentMenus }]]*/;   /*]]>*/
+
+        document.addEventListener("DOMContentLoaded", function() {
+          const headerHeight = $("#menu").outerHeight();
+
+          //$("body").css("padding-top", `${headerHeight}px`);
+          //$("#showHideMobileMenu").css("height", `calc(100vh - ${headerHeight}px)`);
+          
+          $(`a[href="${window.location.pathname}"]`).addClass("active");
+
+
+          const oneDepthMenu = currentMenus.find(menu => menu.depth === 1);
+
+          const currentUrlCollapse = document.getElementById(`mobileOneDepth${oneDepthMenu?.id}`);
+          if(currentUrlCollapse) {
+            const collapseInstance = bootstrap.Collapse.getOrCreateInstance(currentUrlCollapse);
+            collapseInstance.show();
+
+
+            $("#mobileMenuCloseButton").on("click", function (event) {
+              collapseInstance.show();
+            });
+          }
+
+          $("#webMenu, #webHoverMenu").mouseenter(() => {
+              $(".js-evt__subWebMenu").addClass("show");
+              $('#webHoverMenu').addClass("show");
+          });
+          $("#webMenu, #webHoverMenu").mouseleave(() => {
+              $(".js-evt__subWebMenu").removeClass("show");
+              $('#webHoverMenu').removeClass("show");
+          });
+
+
+          $('#mobileMenuCollapse').on('shown.bs.collapse', (e) => {
+              if (e.target.id !== 'mobileMenuCollapse') return;
+              $("body").addClass("overflow-hidden");
+          });
+
+          $('#mobileMenuCollapse').on('hidden.bs.collapse', (e) => {
+              if (e.target.id !== 'mobileMenuCollapse') return;
+              $("body").removeClass("overflow-hidden");
+          });
+
+        });
+    </script>
+</th:block>
+
+</html>

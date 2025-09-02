@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(Ff2BccSEa+5nU7Vx7Ao7l1GJTl6WWAtj3gvRDWDJFHjqlMF5sI0WOY2LWKnEPsCH)
+    username: ENC(jrwv2niSBvj1AiS637Gq2Q==)
+    password: ENC(Ad9lw4pCaki+9URX0e4o1yNQx32hPSbj)
+
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum.client: DEBUG
+    com.exporum.core: DEBUG
+
+org:
+  apache:
+    catalina:
+      level: DEBUG
+
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-dev
+
+jwt:
+  cookie-domain: 192.168.0.252
+  cookie-secure: false
+
+
+resource:
+  storage:
+    path:
+      upload: /tmp
+      download: /tmp
+      #download: classpath:/temp/download
+    url: ENC(dDQUnbh5WaJJydlUOSS+YEYkUdUNyozJXpj4Fq+Kqlf1Eh3yAnjaya2tf6u3AlqwpYmG8cXR6Fd8GDcaFG2zYQ==)
+
+payment:
+  imp:
+    init: ENC(0dWVaGpFPujC5yiLFjnmXyUv0eHuVXIO)
+    pg: ENC(Yj6s8hAci72opavkarhhjxGWVfBB1tpu8mNc0ot9laU=)
+  webhook:
+    url: ENC(QqsJV8wz1Pc2K/Mu59fYNgy43nVlHuFyJW7AUffxJNGVE1oirL7CGsSRhmvmNv1PiHlzHr31Ap6y6QBfS/OvNrI52PSN6d/t)
+
+
+app:
+  referer:
+    exclude-domain: https://dev-woc-asia.exporum.com/

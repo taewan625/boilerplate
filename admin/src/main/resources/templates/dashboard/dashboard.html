@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}">
+
+<div layout:fragment="content-fragment" class="container-fluid flex-grow-1 container-p-y">
+    <link rel="stylesheet" href="/static/vendor/libs/apex-charts/apexcharts.css" />
+    <div class="row">
+        <div class="col-8">
+            <h4 class="fw-bold py-3 mb-4">DASHBOARD</h4>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <span class="fw-bold"></span>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control w-px-250 text-center" value="2025-02-18 ~ 2025-02-25" id="date-range">
+                        <span class="input-group-text">
+                            <i class='bx bx-calendar'></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8 mb-4 order-0">
+            <div class="card h-100">
+                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                    <h5 class="fw-bold card-title m-0 me-2">Sales Trend <span class="text-muted fw-normal fs-6 dashboard-date"></span></h5>
+                </div>
+                <div class="row row-bordered g-0 pe-3">
+                    <div id="salesCharts"></div>
+                    <div id="custom-legend" style="display: flex; justify-content: center; gap: 15px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 order-1">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header pb-0">
+                            <h5 class="fw-bold m-0 me-2">Sales by Period <span class="text-muted fw-normal fs-6 dashboard-date"></span></h5>
+                        </div>
+                        <div class="card-body p-4" id="sales-by-period">
+                            <div>
+                                <div class="sales-item">
+                                    <div>
+                                        <h6>1-day badge</h6>
+                                        <small>Quantity: 0</small>
+                                    </div>
+                                    <div class="sales-amount">0 USD</div>
+                                </div>
+                                <div class="sales-item">
+                                    <div>
+                                        <h6>3-days badge</h6>
+                                        <small>Quantity: 0</small>
+                                    </div>
+                                    <div class="sales-amount">0 USD</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12 col-md-12 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header pb-0">
+                            <h5 class="fw-bold m-0 me-2">Total Sales</h5>
+                        </div>
+                        <div class="card-body p-4" id="total-sales"><div class="sales-category">Early Bird</div><div>
+                            <div class="sales-item">
+                                <div>
+                                    <h6>1-day badge</h6>
+                                    <small>Quantity: 0</small>
+                                </div>
+                                <div class="sales-amount">0 USD</div>
+                            </div>
+                            <div class="sales-item">
+                                <div>
+                                    <h6>3-days badge</h6>
+                                    <small>Quantity: 0</small>
+                                </div>
+                                <div class="sales-amount">0 USD</div>
+                            </div>
+                        </div>
+                            <div class="sales-category">Regular</div>
+                            <div>
+                                <div class="sales-item">
+                                    <div>
+                                        <h6>1-day badge</h6>
+                                        <small>Quantity: 0</small>
+                                    </div>
+                                    <div class="sales-amount">0 USD</div>
+                                </div>
+                                <div class="sales-item">
+                                    <div>
+                                        <h6>3-days badge</h6>
+                                        <small>Quantity: 0</small>
+                                    </div>
+                                    <div class="sales-amount">0 USD</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="sales-item border-top">
+                                    <div>
+                                        <h6>Total Amount</h6>
+                                    </div>
+                                    <div class="sales-amount-total">0 USD</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2">
+            <div class="card h-100">
+                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                    <h5 class="fw-bold card-title m-0 me-2">Total Visitors by Platform <span class="text-muted fw-normal fs-6 dashboard-date"></span></h5>
+                    <div class="align-items-center justify-content-center">
+                        <span>Total Visitors</span>
+                        <span class="badge bg-label-primary fw-bold" id="total-visitor">0</span>
+                    </div>
+                </div>
+                <div class="row row-bordered g-0 pe-3">
+                    <div id="totalPvChart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / Content -->
+
+    <!-- Vendors JS -->
+    <script defer  src="/static/vendor/libs/apex-charts/apexcharts.min.js"></script>
+
+    <script src="/static/js/dashboard/dashboard.js" defer></script>
+</div>
+
+</html>

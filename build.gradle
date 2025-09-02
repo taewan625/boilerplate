@@ -1,0 +1,148 @@
+//plugins == task group
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.0'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+//root project 실행가능 Jar 파일 생성 기능 OFF
+bootJar.enabled = false
+
+
+//전체 프로젝트 공통 설정
+allprojects {
+    group = 'com.exporum'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+//하위 프로젝트 공통 설정
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    def jasyptVersion = '3.0.5'
+    def mybatisVersion = '3.0.3'
+    def swaggerVersion = '2.3.0'
+    def commonsTextVersion = '1.10.0'
+    def commonsIoVersion = '2.16.0'
+    //def s3Version = '1.11.238'
+    def s3Version = '2.26.22'
+    def tikaVersion = '2.8.0'
+    def zxingVersion = '3.5.0'
+    def jwtVersion = '0.11.5'
+    def poiVersion = '5.2.5'
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += ['--enable-preview']
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+        //mail
+        implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+        //thymeleaf
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+
+        //mariadb
+        runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+        //mybatis
+        implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}";
+        //jasypt
+        implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasyptVersion}"
+        //cache
+        implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+        //mime tpye 검증
+        implementation "org.apache.tika:tika-core:${tikaVersion}"
+
+        //aws s3 api / ncp object storage 사용
+        //implementation "com.amazonaws:aws-java-sdk-s3:${s3Version}"
+        implementation "software.amazon.awssdk:s3:${s3Version}"
+
+
+        //바코드생성
+        implementation "com.google.zxing:core:${zxingVersion}"
+        implementation "com.google.zxing:javase:${zxingVersion}"
+
+        //poi
+        implementation "org.apache.poi:poi:${poiVersion}"
+        implementation "org.apache.poi:poi-ooxml:${poiVersion}"
+
+        //tomcat 10 배포 시 필요
+        // Tomcat 10의 Jakarta 패키지를 지원하는 Spring Boot 종속성
+        //implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+        // Spring Boot Starter Exclude Embedded Tomcat
+        //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+
+        // JWT
+        implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
+        runtimeOnly "io.jsonwebtoken:jjwt-impl:${jwtVersion}"
+        runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jwtVersion}"
+
+        //Swagger
+        implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${swaggerVersion}"
+
+
+        implementation "org.apache.commons:commons-text:${commonsTextVersion}"
+        implementation "commons-io:commons-io:${commonsIoVersion}"
+
+        compileOnly 'org.projectlombok:lombok'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}
+
+
+project(':admin') {
+    jar {
+        enabled = false
+    }
+
+    bootJar {
+        enabled = true
+    }
+
+    dependencies {
+        implementation(project(':core'))
+    }
+}
+
+project(':client') {
+    jar {
+        enabled = false
+    }
+
+    bootJar {
+        enabled = true
+    }
+
+    dependencies {
+        implementation(project(':core'))
+    }
+}

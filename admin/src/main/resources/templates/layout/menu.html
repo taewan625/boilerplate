@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="menu-fragment">
+  <!-- Menu -->
+  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+    <div class="app-brand demo">
+      <a href="/" class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <img src="/static/img/logo/logo.png" style="width:127px;height:64px;"/>
+              </span>
+        <!--<span class="app-brand-text menu-text fw-bolder ms-2">World of Coffee</span>-->
+      </a>
+
+      <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+        <i class="bx bx-chevron-left bx-sm align-middle"></i>x
+      </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+      <!-- Dashboard -->
+      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/dashboard')} >= 0 ? 'active' : ''">
+        <a href="/dashboard" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-dashboard"></i>
+          <div data-i18n="dashboard">DASHBOARD</div>
+        </a>
+      </li>
+
+      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibition')} >= 0 ? 'active open' : ''">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bxs-coffee-alt"></i>
+          <div data-i18n="exhibition">EXHIBITION</div>
+        </a>
+        <ul class="menu-sub">
+<!--          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibition/schedule')} >= 0 ? 'active' : ''">-->
+<!--            <a href="/exhibition/schedule" class="menu-link">-->
+<!--              <div data-i18n="schedule">SCHEDULE</div>-->
+<!--            </a>-->
+<!--          </li>-->
+          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibition/floor-plan')} >= 0 ? 'active' : ''">
+            <a href="/exhibition/floor-plan" class="menu-link">
+              <div data-i18n="floor-plan">FLOOR PLAN</div>
+            </a>
+          </li>
+          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibition/ticket')} >= 0 ? 'active' : ''">
+            <a href="/exhibition/ticket" class="menu-link">
+              <div data-i18n="ticket">TICKET</div>
+            </a>
+          </li>
+            <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibition/brand')} >= 0 ? 'active' : ''">
+                <a href="/exhibition/brand" class="menu-link">
+                    <div data-i18n="brand">BRAND</div>
+                </a>
+            </li>
+        </ul>
+      </li>
+
+        <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/exhibitor')} >= 0 ? 'active' : ''">
+            <a href="/exhibitor" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-id-card"></i>
+                <div data-i18n="exhibitor">EXHIBITOR</div>
+            </a>
+        </li>
+        <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/booth-request')} >= 0 ? 'active' : ''">
+            <a href="/booth-request" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-store"></i>
+                <div data-i18n="booth-request">BOOTH REQUEST</div>
+            </a>
+        </li>
+      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/attendee')} >= 0 ? 'active' : ''">
+        <a href="/attendee" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-barcode"></i>
+          <div data-i18n="attendee">ATTENDEE</div>
+        </a>
+      </li>
+      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/payment')} >= 0 ? 'active' : ''">
+        <a href="/payment" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-dollar"></i>
+          <div data-i18n="payment">PAYMENT</div>
+        </a>
+      </li>
+
+      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/board')} >= 0 ? 'active open' : ''">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-clipboard"></i>
+          <div data-i18n="board">BOARD</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/board/notice')} >= 0 ? 'active' : ''">
+            <a href="/board/notice" class="menu-link">
+              <div data-i18n="notice">NOTICE</div>
+            </a>
+          </li>
+          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/board/press')} >= 0 ? 'active' : ''">
+            <a href="/board/press" class="menu-link">
+              <div data-i18n="press">PRESS</div>
+            </a>
+          </li>
+          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/board/newsletter')} >= 0 ? 'active' : ''">
+            <a href="/board/newsletter" class="menu-link">
+              <div data-i18n="press">NEWSLETTER</div>
+            </a>
+          </li>
+<!--          <li class="menu-item"  th:classappend="${#strings.indexOf(currentUrl,'/board/contactus')} >= 0 ? 'active' : ''">
+            <a href="/board/contactus" class="menu-link">
+              <div data-i18n="contactus">CONTACT US</div>
+            </a>
+          </li>-->
+        </ul>
+      </li>
+    <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/popup')} >= 0 ? 'active' : ''">
+        <a href="/popup" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-windows"></i>
+            <div data-i18n="subscribe">POPUP</div>
+        </a>
+    </li>
+
+    <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/subscribe')} >= 0 ? 'active' : ''">
+        <a href="/subscribe" class="menu-link">
+            <i class="menu-icon tf-icons bx bxs-binoculars"></i>
+            <div data-i18n="subscribe">SUBSCRIBE</div>
+        </a>
+    </li>
+
+
+<!--      <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/system')} >= 0 ? 'active open' : ''">-->
+<!--        <a href="javascript:void(0);" class="menu-link menu-toggle">-->
+<!--          <i class="menu-icon tf-icons bx bxs-cog"></i>-->
+<!--          <div data-i18n="system">SYSTEM</div>-->
+<!--        </a>-->
+<!--        <ul class="menu-sub">-->
+<!--          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/system/admin')} >= 0 ? 'active' : ''">-->
+<!--            <a href="/system/admin" class="menu-link">-->
+<!--              <div data-i18n="admin">ADMIN</div>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/system/user')} >= 0 ? 'active' : ''">-->
+<!--            <a href="/system/user" class="menu-link">-->
+<!--              <div data-i18n="user">USER</div>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="menu-item"  th:classappend="${#strings.indexOf(currentUrl,'/system/code')} >= 0 ? 'active' : ''">-->
+<!--            <a href="/system/code" class="menu-link">-->
+<!--              <div data-i18n="code">CODE</div>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>-->
+    </ul>
+
+  </aside>
+  <!-- / Menu -->
+</th:block>
+</html>

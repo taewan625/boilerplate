@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/*일정 정보 */-->
+  <section class="component">
+    <div class="component__div">
+      <div class="row">
+        <!--/*좌측 영역 (md-4) */-->
+        <div class="col-12 col-md-5">
+          <h2 class="component__title-font--big">SUBSCRIBE TO OUR NEWSLETTER</h2>
+          <p class="component__desc-font--middle fw-semibold">SUBSCRIBE TO OUR MONTHLY NEWSLETTER TO STAY UP TO DATE EXHIBITIONS, AND MORE.</p>
+        </div>
+        
+        <!--/*우측 영역 (md-8) */-->
+        <div class="col-12 col-md-7">
+          <form class="border p-3" id="newsletterForm">
+            <!--/*name */-->
+            <div class="row mb-3">
+              <label for="firstName" class="form-label fw-medium col-12">Name<span class="text-danger">*</span></label>
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" maxlength="255"/>
+              </div>
+              <div class="col-12 col-md-6">
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required maxlength="255"/>
+              </div>
+            </div>
+            
+            <!--/*Email */-->
+            <div class="row mb-3">
+              <label for="email" class="form-label fw-medium col-12">Email<span class="text-danger">*</span></label>
+              <div class="col-12">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required maxlength="50"/>
+              </div>
+            </div>
+            
+            <div class="row mb-3">
+              <p class="col-12 text-primary-600">*You can unsubscribe at any time by clicking the link in the footer of our emails.</p>
+              <p class="col-12 text-gray-500">Marketing Permissions (required) Please click the options below to confirm you would like to receive email updates from World of Coffee asia</p>
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col-12">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="accepted" id="accepted" value="true"/>
+                  <label class="form-check-label" for="accepted">Accept<span class="text-danger">*</span></label>
+                </div>
+              </div>
+            </div>
+            
+            <!--/*submit */-->
+            <div class="row mt-3 mt-md-5">
+              <div class="col-12">
+                <button type="button" class="component__button--primary-one component__button--primary-dark component__button--disabled w-100" id="submit">SUBSCRIBE</button>
+              </div>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/* 뉴스레터 정보 (최근 3건) */-->
+  <section class="component border-top d-none" id="latestNewsletter">
+    <div class="component__div position-relative">
+      <div class="d-flex flex-md-row flex-column justify-content-between gap-2 gap-md-0">
+        <h1 class="component__title-font--big">Check Out Our Latest Newsletter!</h1>
+        <a href="/newsletter" class="component__button--primary-one component__button--primary-dark">
+          <div>READ MORE NEWSLETTERS</div>
+        </a>
+      </div>
+      
+      <div class="row row-cols-2 row-cols-md-3 g-4" id="newsletters">
+      </div>
+      
+      <!--/* 로딩바 */-->
+      <div class="js-evt__loading text-center js-evt__loading d-none">
+        <div class="spinner-border text-primary-600" role="status"></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <script src="/static/js/notice/subscribe.js" defer></script>
+</section>
+</html>

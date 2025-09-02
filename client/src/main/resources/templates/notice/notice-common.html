@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/*공지사항 목록 */-->
+  <section class="component">
+    <div class="component__div">
+      
+      <h1 class="component__title-font--big" id="noticeTitle"></h1>
+      
+      <!--/*목록 */-->
+      <div class="container">
+        <ul class="list-group list-group-flush" id="noticeList"></ul>
+      </div>
+      
+      <!--/*페이징 */-->
+      <div class="d-flex justify-content-center gap-2 py-5" id="pagination"></div>
+      
+    </div>
+  </section>
+  
+  <script src="/static/js/notice/notice-common.js" defer></script>
+</section>
+</html>

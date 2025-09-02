@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(PJB7Kjyvh6QXjNr65n4b/2UhVrOzlAQ/+gi7tIhVrDaWrcgWExmWFzyEwFJkFWXy)
+    username: ENC(l/tTVaVw6wRcnAefHUW4Nw==)
+    password: ENC(uUKfC0ILlkgnKqssvLjph2otuRJW2Vij2FMid/bAECQ=)
+
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum.client: DEBUG
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-prod
+
+jwt:
+  cookie-domain: localhost
+  cookie-secure: false
+
+resource:
+  storage:
+    path:
+      upload: /tmp
+      download: /tmp
+    url: ENC(Uu5mXY2G1sHjMv9TMIUp551wbgbTgCQIufQqmjonw1aM6PCKY9Fejg5y6xpIYweU6QWO/DJrFCeNjKu0Tf1CdsjkcygRMowV)
+
+
+payment:
+  imp:
+    init: ENC(0dWVaGpFPujC5yiLFjnmXyUv0eHuVXIO)
+    pg: ENC(Y1ZA3oQ1SaMrDH09xNBKe1ptXVZtVRGWXine52jDrU4=)
+  webhook:
+    url: ENC(CRQXS+lpXHXO12Hn42GUh4/rYUlM4CqcSrr0S6vz5/UYXzkhTRLZ9nP5qj3unGs2ADUV6gForfv6WJzFfxKlOUQOB00TL2Ga)
+
+
+app:
+  referer:
+    exclude-domain: https://asia.worldofcoffee.org

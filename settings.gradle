@@ -1,0 +1,7 @@
+/**
+ * 역할: 모든 gradle project의 진입점
+ * single project는 선택사항, multi-project는 필수
+ * multi-project인데 include하지 않는 경우 gradle 관리 프로젝트에서 아예 제외되어서 빌드, 테스트 등 일절 동작 안함.
+ * */
+rootProject.name = 'boilerplate-basic'
+include 'core', 'client', 'admin'

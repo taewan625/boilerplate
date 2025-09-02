@@ -1,0 +1,799 @@
+/**
+ * 공통 변수
+ **/
+:root {
+  /* layout */
+  --primary-max-width: 1200px;
+  --primary-padding-x: 0 1rem;
+
+  /* header menu height */
+  --header-menu-height: 71px;
+
+  /* z-index */
+  --menu-z-index: -1;
+  --content-z-index: 10;
+  --max-z-index:9999;
+
+  /* data-theme */
+  --primary-900: #7A5E0C;
+  --primary-800: #A07814;
+  --primary-700: #C1901E;
+  --primary-600: #E6B231; /* 기준 컬러 */
+  --primary-500: #F0C247;
+  --primary-400: #F5D167;
+  --primary-300: #F9DE87;
+  --primary-200: #FCE9A8;
+  --primary-100: #FEF3C9;
+  --primary-50: #FFFAE5;
+
+}
+
+/* jakarta Theme */
+[data-theme="jakarta"] {
+  --primary-900: #BA421B;
+  --primary-800: #D44E22;
+  --primary-700: #E25525;
+  --primary-600: #F05B2A;
+  --primary-500: #F05B2A;
+  --primary-400: #FB784C;
+  --primary-300: #FB906C;
+  --primary-200: #FCAF96;
+  --primary-100: #FDCEBF;
+  --primary-50: #FAEAE8;
+}
+
+/* Bangkok Theme */
+[data-theme="bangkok"] {
+  --primary-900: #7A5E0C;
+  --primary-800: #A07814;
+  --primary-700: #C1901E;
+  --primary-600: #E6B231;
+  --primary-500: #F0C247;
+  --primary-400: #F5D167;
+  --primary-300: #F9DE87;
+  --primary-200: #FCE9A8;
+  --primary-100: #FEF3C9;
+  --primary-50: #FFFAE5;
+}
+
+/**
+ * 공통 CSS - tag 요소
+ **/
+.body {
+  /* 기본 폰트 */
+  font-family: "JakartaBase", sans-serif;
+
+  /* 최소 지점 가로 스크롤 */
+  min-width: 250px;
+  overflow-x: auto;
+
+  /* footer 하단 고정 목적 css */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  /* menu 영역 */
+  padding-top: var(--header-menu-height);
+}
+
+label.error {
+  color: var(--bs-danger);
+  font-size: 14px;
+}
+
+/**
+ * 공통 CSS - component
+ **/
+/* component 기본 css */
+.component {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px){
+  .component {
+    padding: 4rem 0;
+  }
+}
+
+.component__div {
+  max-width: var(--primary-max-width);
+  width: 100%;
+  padding: var(--primary-padding-x);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* loading
+TODO: 전체 개별 요소별로 사용할 수 있도록 공통처리 필요. 현재 개별 요소만 되게 개발 진행
+*/
+.component__wrap-loading {
+  position: absolute; /* fixed */
+  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 가운데 정렬 */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*background: rgba(0,0,0,0.2);*/
+  z-index: var(--max-z-index);
+}
+
+/** 버튼 **/
+/* link 기능 버튼 색상: border text background - primary 색상 */
+.component__button--disabled {
+  background-color: var(--bs-gray-300) !important;
+  color: var(--bs-white) !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  border: none !important;
+}
+.component__button--disabled:hover {
+  background-color: var(--bs-gray-500) !important;
+  color: var(--bs-white) !important;
+}
+
+.component__button--primary,
+.component__button--primary-dark {
+  background-color: var(--primary-600);
+  color: var(--bs-white);
+}
+.component__button--primary:hover {
+  background-color: inherit;
+  border-color: inherit;
+  color: var(--primary-600);
+}
+.component__button--primary-dark:hover {
+  border-color: var(--primary-700);
+  background-color: var(--primary-700);
+}
+
+/* link 기능 버튼 색상: border text - primary 색상 */
+.component__button--primary-inherit {
+  background-color: inherit;
+  color: var(--primary-600);
+}
+.component__button--primary-inherit:hover {
+  background-color: var(--primary-600);
+  color: var(--bs-white);
+}
+
+/* link 기능 버튼 색상: border text - primary 색상 */
+.component__button--primary-white {
+  background-color: inherit;
+  color: var(--bs-white);
+  border: 2px solid var(--bs-white) !important;
+}
+.component__button--primary-white:hover {
+  background-color: var(--primary-600);
+}
+
+/* link 기능 버튼 색상: border text - primary 색상 */
+.component__button--primary-gray {
+  background-color: inherit;
+  color: var(--bs-secondary);
+  border: 2px solid var(--bs-gray-400) !important;
+}
+.component__button--primary-gray:hover {
+  background-color: var(--bs-gray-100);
+}
+
+/* link 기능 버튼 1. 단일 문구, 단일 문구 + 아이콘 경우 */
+.component__button--primary-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid var(--primary-600);
+  text-decoration: none;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .component__button--primary-one {
+    width: fit-content !important;
+    font-size: 18px;
+  }
+}
+
+/* link 기능 버튼 2. 아이콘인 경우 */
+.component__button--primary-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  font-weight: 500;
+  border: 2px solid var(--primary-600);
+  text-decoration: none;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .component__button--primary-two {
+    width: fit-content !important;
+  }
+}
+
+/* link 기능 버튼 3. 회사 로고 */
+.component__button--primary-three {
+  display: flex;
+  justify-content: center;
+  /* height를 따로 주지 않으므로서 align-items: stretch (default - 부모 요소 높이에 맞춤) 적용되어 동일한 높이 설정 */
+  border: 1px solid var(--bs-gray-400);
+  padding: 20px 0;
+}
+
+.component__button--primary-three--big img {
+  width: 180px;
+  height: 120px;
+  object-fit: contain;
+}
+.component__button--primary-three--middle img {
+  width: 135px;
+  height: 90px;
+  object-fit: contain;
+}
+.component__button--primary-three--small img {
+  width: 90px;
+  height: 60px;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .component__button--primary-three--big img {
+    width: 360px;
+    height: 240px;
+  }
+  .component__button--primary-three--middle img {
+    width: 270px;
+    height: 180px;
+  }
+  .component__button--primary-three--small img {
+    width: 180px;
+    height: 120px;
+  }
+}
+
+/* card img */
+.component__card-img--middle { height: clamp(150px, 35vw, 272px); }
+
+
+/* link 기능 버튼 4. 단순 문구가 아닌 여러 문구가 포함된 경우 */
+.component__button--primary-custom-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  min-width: 0;
+  /* 핵심 */
+  width: 100%;
+  height: 104px;
+  color: var(--bs-white);
+  border: none;
+  text-decoration: none;
+  padding: 0 20px;
+  gap: 2px;
+}
+@media (min-width: 768px) {
+  .component__button--primary-custom-one {
+    height: 162px;
+  }
+}
+/* 대표 색상 */
+.component__button--primary-custom-one--primary {
+  background-color: var(--primary-600);
+}
+/* black 색상 */
+.component__button--primary-custom-one--black {
+  background-color: var(--bs-black);
+}
+
+.component__logo-img-size {
+  width: 120px;
+  height: 70px;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+
+/* page button */
+/* link 기능 버튼 1. 단일 문구, 단일 문구 + 아이콘 경우 */
+.component__page-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  font-weight: 400;
+  border: none;
+  text-decoration: none;
+  padding: 0 18px;
+
+  color: var(--bs-gray-500);
+  background-color: var(--bs-white);
+}
+
+.component__page-button.active,
+.component__page-button:hover
+{
+  color: var(--bs-white);
+  background-color: var(--primary-600);
+}
+
+/** 테이블 **/
+/* schedule 테이블 클래스 */
+.component__schedule-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.component__schedule-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.component__schedule-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--bs-gray-100);
+}
+
+.component__schedule-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.component__schedule-title {
+  font-weight: 600;
+}
+
+.component__schedule-location {
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--bs-gray-600);
+}
+
+.component__schedule-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 20px;
+  background-color: var(--bs-gray-100);
+}
+
+/* 반응형: md 이상에서는 로고 좌측 고정 */
+@media (min-width: 768px) {
+  .component__schedule-group {
+    grid-template-columns: auto 1fr;
+    align-items: flex-start;
+  }
+  .component__schedule-location {
+    font-size: 18px;
+  }
+  .component__schedule-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* title font */
+.component__title-font--big {
+  font-size: 28px;
+  font-weight: 700;
+}
+.component__title-font--middle {
+  font-size: 22px;
+  font-weight: 600;
+}
+.component__title-font--small {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px){
+  .component__title-font--big { font-size: 40px; }
+  .component__title-font--middle { font-size: 32px; }
+  .component__title-font--small { font-size: 26px; }
+}
+
+/* desc font */
+.component__desc-font--big { font-size: 18px; }
+.component__desc-font--middle { font-size: 16px; }
+.component__desc-font--small { font-size: 14px; }
+
+@media (min-width: 768px){
+  .component__desc-font--big { font-size: 24px; }
+  .component__desc-font--middle { font-size: 18px; }
+  .component__desc-font--small { font-size: 16px; }
+}
+
+/* footer 소셜 icon */
+.component__social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* svg width, height가 동일하게 잡혔음을 가정 */
+  width: auto;
+  height: auto;
+  padding: 0.6rem;
+}
+.component__social-icon--outline {
+  background-color: var(--bs-light);
+  border-radius: 0.5rem;
+}
+
+/**
+ * 공통 CSS - 단일 속성
+ **/
+/* cursor */
+.cursor-default { cursor: default; }
+.cursor-pointer { cursor: pointer; }
+
+/* outline */
+.outline-none { outline: none; }
+
+/* bg color */
+.bg-primary-100 { background-color: var(--primary-100) !important; }
+.bg-primary-200 { background-color: var(--primary-200) !important; }
+.bg-primary-300 { background-color: var(--primary-300) !important; }
+.bg-primary-400 { background-color: var(--primary-400) !important; }
+.bg-primary-500 { background-color: var(--primary-500) !important; }
+.bg-primary-600 { background-color: var(--primary-600) !important; }
+.bg-primary-700 { background-color: var(--primary-700) !important; }
+.bg-primary-800 { background-color: var(--primary-800) !important; }
+.bg-primary-900 { background-color: var(--primary-900) !important; }
+.bg-gray-100 { background-color: var(--bs-gray-100) !important; }
+
+/* color opacity */
+.bg-white-opacity-40 { background-color: rgba(255, 255, 255, 0.4);}
+
+/* font family */
+.font-family-OnehungaSans { font-family: "OnehungaSans", sans-serif; }
+
+/* font px size */
+.fs-10px { font-size: 10px !important; }
+.fs-12px { font-size: 12px !important; }
+.fs-14px { font-size: 14px !important; }
+.fs-16px { font-size: 16px !important; }
+.fs-18px { font-size: 18px !important; }
+.fs-20px { font-size: 20px !important; }
+.fs-22px { font-size: 22px !important; }
+.fs-24px { font-size: 24px !important; }
+.fs-26px { font-size: 26px !important; }
+.fs-28px { font-size: 28px !important; }
+.fs-30px { font-size: 30px !important; }
+.fs-32px { font-size: 32px !important; }
+.fs-34px { font-size: 34px !important; }
+.fs-36px { font-size: 36px !important; }
+.fs-38px { font-size: 38px !important; }
+.fs-40px { font-size: 40px !important; }
+.fs-42px { font-size: 42px !important; }
+.fs-44px { font-size: 44px !important; }
+.fs-46px { font-size: 46px !important; }
+.fs-48px { font-size: 48px !important; }
+.fs-50px { font-size: 50px !important; }
+.fs-52px { font-size: 52px !important; }
+.fs-54px { font-size: 54px !important; }
+.fs-56px { font-size: 56px !important; }
+.fs-58px { font-size: 58px !important; }
+.fs-60px { font-size: 60px !important; }
+.fs-65px { font-size: 65px !important; }
+.fs-70px { font-size: 70px !important; }
+.fs-75px { font-size: 75px !important; }
+.fs-80px { font-size: 80px !important; }
+.fs-85px { font-size: 85px !important; }
+.fs-90px { font-size: 90px !important; }
+.fs-95px { font-size: 95px !important; }
+.fs-100px { font-size: 100px !important; }
+
+
+@media (min-width: 768px) {
+  .fs-md-10px { font-size: 10px !important; }
+  .fs-md-12px { font-size: 12px !important; }
+  .fs-md-14px { font-size: 14px !important; }
+  .fs-md-16px { font-size: 16px !important; }
+  .fs-md-18px { font-size: 18px !important; }
+  .fs-md-20px { font-size: 20px !important; }
+  .fs-md-22px { font-size: 22px !important; }
+  .fs-md-24px { font-size: 24px !important; }
+  .fs-md-26px { font-size: 26px !important; }
+  .fs-md-28px { font-size: 28px !important; }
+  .fs-md-30px { font-size: 30px !important; }
+  .fs-md-32px { font-size: 32px !important; }
+  .fs-md-34px { font-size: 34px !important; }
+  .fs-md-36px { font-size: 36px !important; }
+  .fs-md-38px { font-size: 38px !important; }
+  .fs-md-40px { font-size: 40px !important; }
+  .fs-md-42px { font-size: 42px !important; }
+  .fs-md-44px { font-size: 44px !important; }
+  .fs-md-46px { font-size: 46px !important; }
+  .fs-md-48px { font-size: 48px !important; }
+  .fs-md-50px { font-size: 50px !important; }
+  .fs-md-52px { font-size: 52px !important; }
+  .fs-md-54px { font-size: 54px !important; }
+  .fs-md-56px { font-size: 56px !important; }
+  .fs-md-58px { font-size: 58px !important; }
+  .fs-md-60px { font-size: 60px !important; }
+  .fs-md-62px { font-size: 62px !important; }
+  .fs-md-64px { font-size: 64px !important; }
+  .fs-md-66px { font-size: 66px !important; }
+  .fs-md-68px { font-size: 68px !important; }
+  .fs-md-70px { font-size: 70px !important; }
+  .fs-md-72px { font-size: 72px !important; }
+  .fs-md-74px { font-size: 74px !important; }
+  .fs-md-76px { font-size: 76px !important; }
+  .fs-md-78px { font-size: 78px !important; }
+  .fs-md-80px { font-size: 80px !important; }
+  .fs-md-82px { font-size: 82px !important; }
+  .fs-md-84px { font-size: 84px !important; }
+  .fs-md-86px { font-size: 86px !important; }
+  .fs-md-88px { font-size: 88px !important; }
+  .fs-md-90px { font-size: 90px !important; }
+  .fs-md-92px { font-size: 92px !important; }
+  .fs-md-94px { font-size: 94px !important; }
+  .fs-md-96px { font-size: 96px !important; }
+  .fs-md-98px { font-size: 98px !important; }
+  .fs-md-100px { font-size: 100px !important; }
+  .fs-md-105px { font-size: 105px !important; }
+  .fs-md-110px { font-size: 110px !important; }
+  .fs-md-115px { font-size: 115px !important; }
+  .fs-md-120px { font-size: 120px !important; }
+  .fs-md-125px { font-size: 125px !important; }
+  .fs-md-130px { font-size: 130px !important; }
+  .fs-md-135px { font-size: 135px !important; }
+  .fs-md-140px { font-size: 140px !important; }
+  .fs-md-145px { font-size: 145px !important; }
+  .fs-md-150px { font-size: 150px !important; }
+  .fs-md-155px { font-size: 155px !important; }
+  .fs-md-160px { font-size: 160px !important; }
+  .fs-md-165px { font-size: 165px !important; }
+  .fs-md-170px { font-size: 170px !important; }
+  .fs-md-175px { font-size: 175px !important; }
+  .fs-md-180px { font-size: 180px !important; }
+  .fs-md-185px { font-size: 185px !important; }
+  .fs-md-190px { font-size: 190px !important; }
+  .fs-md-195px { font-size: 195px !important; }
+  .fs-md-200px { font-size: 200px !important; }
+}
+
+/* font color */
+.text-color-inherit { color: inherit !important; }
+.text-primary-100 { color: var(--primary-100) !important; }
+.text-primary-200 { color: var(--primary-200) !important; }
+.text-primary-300 { color: var(--primary-300) !important; }
+.text-primary-400 { color: var(--primary-400) !important; }
+.text-primary-500 { color: var(--primary-500) !important; }
+.text-primary-600 { color: var(--primary-600) !important; }
+.text-primary-700 { color: var(--primary-700) !important; }
+.text-primary-800 { color: var(--primary-800) !important; }
+.text-primary-900 { color: var(--primary-900) !important; }
+
+.text-gray-100 { color: var(--bs-gray-100) !important; }
+.text-gray-200 { color: var(--bs-gray-200) !important; }
+.text-gray-300 { color: var(--bs-gray-300) !important; }
+.text-gray-400 { color: var(--bs-gray-400) !important; }
+.text-gray-500 { color: var(--bs-gray-500) !important; }
+.text-gray-600 { color: var(--bs-gray-600) !important; }
+.text-gray-700 { color: var(--bs-gray-700) !important; }
+.text-gray-800 { color: var(--bs-gray-800) !important; }
+.text-gray-900 { color: var(--bs-gray-900) !important; }
+
+/* height-vh */
+.vh-60 { height: 60vh !important; }
+.vh-70 { height: 70vh !important; }
+.vh-80 { height: 80vh !important; }
+.vh-90 { height: 90vh !important; }
+
+.min-vh-60 { min-height: 60vh !important; }
+
+/* height-px */
+.h-10px { height: 10px !important; }
+.h-20px { height: 20px !important; }
+.h-30px { height: 30px !important; }
+.h-40px { height: 40px !important; }
+.h-48px { height: 48px !important; }
+.h-50px { height: 50px !important; }
+.h-60px { height: 60px !important; }
+.h-70px { height: 70px !important; }
+.h-80px { height: 80px !important; }
+.h-90px { height: 90px !important; }
+.h-100px { height: 100px !important; }
+.h-110px { height: 110px !important; }
+.h-120px { height: 120px !important; }
+.h-130px { height: 130px !important; }
+.h-140px { height: 140px !important; }
+.h-150px { height: 150px !important; }
+.h-160px { height: 160px !important; }
+.h-170px { height: 170px !important; }
+.h-180px { height: 180px !important; }
+.h-190px { height: 190px !important; }
+.h-200px { height: 200px !important; }
+.h-210px { height: 210px !important; }
+.h-220px { height: 220px !important; }
+.h-230px { height: 230px !important; }
+.h-240px { height: 240px !important; }
+.h-250px { height: 250px !important; }
+.h-260px { height: 260px !important; }
+.h-270px { height: 270px !important; }
+
+@media (min-width: 768px) {
+  .h-md-60px { height: 60px !important; }
+  .h-md-70px { height: 70px !important; }
+  .h-md-80px { height: 80px !important; }
+  .h-md-90px { height: 90px !important; }
+  .h-md-100px { height: 100px !important; }
+  .h-md-110px { height: 110px !important; }
+  .h-md-120px { height: 120px !important; }
+  .h-md-130px { height: 130px !important; }
+  .h-md-140px { height: 140px !important; }
+  .h-md-150px { height: 150px !important; }
+  .h-md-160px { height: 160px !important; }
+  .h-md-170px { height: 170px !important; }
+  .h-md-180px { height: 180px !important; }
+  .h-md-190px { height: 190px !important; }
+  .h-md-200px { height: 200px !important; }
+  .h-md-210px { height: 210px !important; }
+  .h-md-220px { height: 220px !important; }
+  .h-md-230px { height: 230px !important; }
+  .h-md-240px { height: 240px !important; }
+  .h-md-250px { height: 250px !important; }
+  .h-md-260px { height: 260px !important; }
+  .h-md-270px { height: 270px !important; }
+}
+
+/* max height */
+.mh-none { max-height: none !important; }
+.mh-60px { max-height: 60px !important; }
+.mh-70px { max-height: 70px !important; }
+.mh-80px { max-height: 80px !important; }
+.mh-90px { max-height: 90px !important; }
+.mh-100px { max-height: 100px !important; }
+.mh-300px { max-height: 300px !important; }
+.mh-350px { max-height: 350px !important; }
+.mh-400px { max-height: 400px !important; }
+.mh-500px { max-height: 500px !important; }
+.mh-600px { max-height: 600px !important; }
+
+@media (min-width: 768px) {
+  .mh-md-none { max-height: none !important; }
+  .mh-md-500px { max-height: 500px !important; }
+  .mh-md-600px { max-height: 600px !important; }
+  .mh-md-700px { max-height: 700px !important; }
+  .mh-md-800px { max-height: 800px !important; }
+  .mh-md-900px { max-height: 900px !important; }
+}
+
+/* clamp height */
+.h-189-675 { height: clamp(189px, 65vw, 675px); }
+
+/* width-px */
+.w-10px { width: 10px !important; }
+.w-20px { width: 20px !important; }
+.w-30px { width: 30px !important; }
+.w-40px { width: 40px !important; }
+.w-50px { width: 50px !important; }
+.w-60px { width: 60px !important; }
+.w-70px { width: 70px !important; }
+.w-80px { width: 80px !important; }
+.w-90px { width: 90px !important; }
+.w-100px { width: 100px !important; }
+.w-110px { width: 110px !important; }
+.w-120px { width: 120px !important; }
+.w-130px { width: 130px !important; }
+.w-140px { width: 140px !important; }
+.w-150px { width: 150px !important; }
+.w-160px { width: 160px !important; }
+.w-170px { width: 170px !important; }
+.w-180px { width: 180px !important; }
+.w-190px { width: 190px !important; }
+.w-200px { width: 200px !important; }
+.w-210px { width: 210px !important; }
+.w-220px { width: 220px !important; }
+.w-230px { width: 230px !important; }
+.w-240px { width: 240px !important; }
+.w-250px { width: 250px !important; }
+
+@media (min-width: 768px) {
+  .w-md-60px { width: 60px !important; }
+  .w-md-70px { width: 70px !important; }
+  .w-md-80px { width: 80px !important; }
+  .w-md-90px { width: 90px !important; }
+  .w-md-100px { width: 100px !important; }
+  .w-md-110px { width: 110px !important; }
+  .w-md-120px { width: 120px !important; }
+  .w-md-130px { width: 130px !important; }
+  .w-md-140px { width: 140px !important; }
+  .w-md-150px { width: 150px !important; }
+  .w-md-160px { width: 160px !important; }
+  .w-md-170px { width: 170px !important; }
+  .w-md-180px { width: 180px !important; }
+  .w-md-190px { width: 190px !important; }
+  .w-md-200px { width: 200px !important; }
+  .w-md-210px { width: 210px !important; }
+  .w-md-220px { width: 220px !important; }
+  .w-md-230px { width: 230px !important; }
+  .w-md-240px { width: 240px !important; }
+  .w-md-250px { width: 250px !important; }
+  .w-md-380px { width: 380px !important; }
+}
+
+/* max width */
+.mw-none { max-width: none !important; }
+.mw-60px { max-width: 60px !important; }
+.mw-70px { max-width: 70px !important; }
+.mw-80px { max-width: 80px !important; }
+.mw-90px { max-width: 90px !important; }
+.mw-100px { max-width: 100px !important; }
+.mw-300px { max-width: 300px !important; }
+.mw-350px { max-width: 350px !important; }
+.mw-400px { max-width: 400px !important; }
+.mw-500px { max-width: 500px !important; }
+.mw-600px { max-width: 600px !important; }
+
+@media (min-width: 768px) {
+  .mw-md-none { max-width: none !important; }
+  .mw-md-500px { max-width: 500px !important; }
+  .mw-md-600px { max-width: 600px !important; }
+  .mw-md-700px { max-width: 700px !important; }
+  .mw-md-800px { max-width: 800px !important; }
+  .mw-md-900px { max-width: 900px !important; }
+}
+
+/* padding-left */
+.pl-100px { padding-left: 100px !important; }
+.pl-110px { padding-left: 110px !important; }
+.pl-120px { padding-left: 120px !important; }
+.pl-130px { padding-left: 130px !important; }
+.pl-140px { padding-left: 140px !important; }
+
+/* transition-timing-function 종류별 클래스 */
+.ttf-ease { transition-timing-function: ease !important;/* 천천히 시작해서 빠르게 끝남 (기본값) */ }
+.ttf-linear { transition-timing-function: linear !important;/* 선형: 속도 일정 */ }
+.ttf-ease-in { transition-timing-function: ease-in !important;/* 천천히 시작 */ }
+.ttf-ease-out { transition-timing-function: ease-out !important;/* 천천히 끝남 */ }
+.ttf-ease-in-out { transition-timing-function: ease-in-out !important;/* 천천히 시작하고 천천히 끝남 */ }
+
+/* resize */
+.resize-none { resize: none !important; }
+
+/* white space */
+.white-space-pre-wrap { white-space: pre-wrap !important; }
+
+/* 에러페이지 css */
+.error-code {
+  font-size: 52px;
+  font-weight: bolder;
+}
+.error-message {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .error-code {
+    font-size: 92px;
+    font-weight: bolder;
+  }
+  .error-message {
+    font-size: 52px;
+    font-weight: bold;
+  }
+}

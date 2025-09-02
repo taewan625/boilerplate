@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exporum.client.domain.menu.mapper.MenuMapper">
+
+    <!-- 전체 메뉴 조회 (최상위 메뉴부터 전체 트리) -->
+    <select id="getMenus" resultType="com.exporum.client.domain.menu.model.Menu">
+        <![CDATA[
+            WITH RECURSIVE menu_tree AS (
+                SELECT
+                    m.id,
+                    m.upper_id,
+                    m.depth,
+                    m.order,
+                    m.url,
+                    m.name,
+                    m.link_target_code,
+                    m.device_code,
+                    m.menu_type_code
+                FROM menu m
+                WHERE   1 = 1
+                        AND m.depth = 1
+                        AND m.is_visible = 1
+                        AND m.is_use = 1
+                        AND m.is_delete = 0
+
+                UNION ALL
+
+                SELECT
+                    m.id,
+                    m.upper_id,
+                    m.depth,
+                    m.order,
+                    m.url,
+                    m.name,
+                    m.link_target_code,
+                    m.device_code,
+                    m.menu_type_code
+                FROM menu m
+                INNER JOIN menu_tree mt ON m.upper_id = mt.id
+                WHERE   1 = 1
+                        AND m.is_visible = 1
+                        AND m.is_use = 1
+                        AND m.is_delete = 0
+            )
+            SELECT *
+            FROM menu_tree
+            ORDER BY depth ASC, `order` ASC
+        ]]>
+    </select>
+
+    <!-- 현재 메뉴 기준 트리 조회 -->
+    <select id="getCurrentMenus" parameterType="string" resultType="com.exporum.client.domain.menu.model.Menu">
+        <![CDATA[
+            WITH RECURSIVE menu_tree AS (
+                /* 현재 URL에 해당하는 메뉴 */
+                SELECT
+                    m.id,
+                    m.upper_id,
+                    m.depth,
+                    m.order,
+                    m.url,
+                    m.name,
+                    m.link_target_code,
+                    m.device_code,
+                    m.menu_type_code
+                FROM menu m
+                WHERE   1 = 1
+                        AND m.url = #{currentPath}
+                        /* 현재 url 경로가 depth에 맞게 매핑되어있지 않아 중복 URL에 대한 임시조치 */
+                        AND 1 < m.depth
+
+                UNION ALL
+
+                /* 상위 메뉴까지 올라가기 */
+                SELECT
+                    m.id,
+                    m.upper_id,
+                    m.depth,
+                    m.order,
+                    m.url,
+                    m.name,
+                    m.link_target_code,
+                    m.device_code,
+                    m.menu_type_code
+                FROM menu m
+                INNER JOIN menu_tree mt ON m.id = mt.upper_id
+            )
+            SELECT *
+            FROM menu_tree
+            ORDER BY depth ASC, `order` ASC
+        ]]>
+    </select>
+
+</mapper>

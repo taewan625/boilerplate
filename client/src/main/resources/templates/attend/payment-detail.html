@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <section class="component">
+    <div class="component__div">
+      
+      <!--svg-->
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center align-items-center rounded w-30px h-30px bg-primary-600 text-white">
+          <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 8.22L7.66571 10.44L11.22 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      
+      <h1 class="component__title-font--big text-center">Payment Successful</h1>
+      <div class="d-flex justify-content-between align-items-center flex-column component__desc-font--middle">
+        <span>Thank you for Purchasing your ticket!</span>
+        <span>We’re excited to welcome you to World of Coffee Asia.</span>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="component">
+    <div class="component__div">
+      <!--/* order info */-->
+      <ul class="list-group mb-3">
+        <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+          <div class="d-flex justify-content-between">
+            <span>Order No</span>
+            <span id="orderNo"></span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Order Date</span>
+            <span id="orderDate"></span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Payment Amount</span>
+            <span id="amountCurrency"></span>
+          </div>
+        </li>
+      </ul>
+      
+      <!--/* customer & ticket info */-->
+      <ul class="list-group mb-3">
+        <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+          <h4>Customer Information</h4>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between">
+              <span>Name</span>
+              <span class="fw-medium text-break text-md-start text-end" id="name"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Email</span>
+              <span class="fw-medium text-break text-md-start text-end" id="email"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Mobile</span>
+              <span class="fw-medium text-break text-md-start text-end" id="mobileNumber"></span>
+            </div>
+          </div>
+        </li>
+        
+        <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+          <h4>Ticket Details</h4>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between">
+              <span>Ticket</span>
+              <span class="fw-medium text-break text-md-start text-end" id="ticketName"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Quantity</span>
+              <span class="fw-medium text-break text-md-start text-end" id="quantity"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Price per Ticket</span>
+              <span class="fw-medium text-break text-md-start text-end" id="pricePerTicket"></span>
+            </div>
+          </div>
+        </li>
+        
+        <!--/* home button */-->
+        <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+          <div class="d-flex justify-content-between fw-semibold">
+            <span>Total Amount</span>
+            <span id="totalAmount"></span>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+  </section>
+  
+  
+  
+  <section class="component">
+    <div class="component__div align-items-md-center">
+      <a href="/" class="component__button--primary-one component__button--primary-dark">GO TO HOME</a>
+    </div>
+  </section>
+  
+  
+  <span th:text="${merchantUid}" class="d-none" id="merchantUid"></span>
+  <script src="/static/js/attend/payment-detail.js" defer></script>
+</section>
+</html>

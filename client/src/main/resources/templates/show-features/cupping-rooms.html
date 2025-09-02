@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* 슬라이드 이미지*/-->
+  <section class="component">
+    <div class="component__div">
+      <!--/*슬라이드 이미지 : 다건인 경우 template*/-->
+      <section>
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+          <!--/*하단 버튼*/-->
+          <div class="carousel-indicators"></div>
+          <!--/*이미지 영역*/-->
+          <div class="carousel-inner"></div>
+          
+          <!--/*좌우 버튼*/-->
+        </div>
+      </section>
+      
+      <h1 class="component__title-font--middle">Dive into the heart of flavor at the World of Coffee’s Cupping Rooms. This unique tasting area is designed for enthusiasts and professionals eager to sample the latest crops and varietals</h1>
+      <p class="component__desc-font--middle">Whether you're scouting for new products or simply passionate about coffee, the Cupping Rooms offers you a direct path to experience the best in green coffee and wholesale offerings.Join us for a tasting and discover your next favorite coffee.</p>
+    </div>
+  </section>
+  
+  <!--/*일정 정보*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="d-flex flex-column gap-2">
+        <h2 class="component__title-font--middle pb-3">Cupping Rooms Overview</h2>
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.75 2.62488V6.37488M8.25 2.62488V6.37488M3.5625 10.1249H20.4375M5.4375 4.49988H18.5625C19.598 4.49988 20.4375 5.33934 20.4375 6.37488V19.4999C20.4375 20.5354 19.598 21.3749 18.5625 21.3749H5.4375C4.40197 21.3749 3.5625 20.5354 3.5625 19.4999V6.37488C3.5625 5.33934 4.40197 4.49988 5.4375 4.49988Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">May 15, 2025 (Thu) - May 17, 2025 (Sat)</p>
+        </div>
+        
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.3332 9.33333C19.3332 5.28333 16.0498 2 11.9998 2C7.94984 2 4.6665 5.28333 4.6665 9.33333C4.6665 14.6667 11.9998 22 11.9998 22C11.9998 22 19.3332 14.6667 19.3332 9.33333Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+            <path d="M11.9998 12C13.4725 12 14.6664 10.8061 14.6664 9.33333C14.6664 7.86057 13.4725 6.66667 11.9998 6.66667C10.527 6.66667 9.33309 7.86057 9.33309 9.33333C9.33309 10.8061 10.527 12 11.9998 12Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">JICC Assembly Hall, Cupping Rooms</p>
+        </div>
+        
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.0059 21.0059C16.9764 21.0059 21.0059 16.9764 21.0059 12.0059C21.0059 7.0353 16.9764 3.00586 12.0059 3.00586M12.0059 21.0059C7.0353 21.0059 3.00586 16.9764 3.00586 12.0059M12.0059 21.0059C13.6627 21.0059 15.0059 16.9764 15.0059 12.0059C15.0059 7.0353 13.6627 3.00586 12.0059 3.00586M12.0059 21.0059C10.349 21.0059 9.00587 16.9764 9.00587 12.0059C9.00587 7.0353 10.349 3.00586 12.0059 3.00586M3.00586 12.0059C3.00586 7.0353 7.0353 3.00586 12.0059 3.00586M3.00586 12.0059L20.9902 12.0058" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">Official Language : English</p>
+        </div>
+        
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">Anyone with a badge on the day of World of Coffee Jakarta can participate in the public cupping.</p>
+        </div>
+      </div>
+      
+      
+      <!--/*테이블*/-->
+      <div class="table-responsive">
+        <table class="table text-center align-middle text-truncate">
+          <thead class="table-light">
+          <tr>
+            <td class="py-3">Date / Time</td>
+            <td class="py-3">May 15 (Thu)</td>
+            <td class="py-3">May 16 (Fri)</td>
+            <td class="py-3">May 17 (Sat)</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="py-3">10:00 - 12:00 (2h)</td>
+            <td class="py-3">Kafa Coffee</td>
+            <td class="py-3">Aquamarine Minerals</td>
+            <td class="py-3">The Starbucks<br>Coffee Company</td>
+          </tr>
+          <tr>
+            <td class="py-3">13:00 - 15:00 (2h)</td>
+            <td class="py-3">acaia</td>
+            <td class="py-3">Cloud Catcher x Project Origin</td>
+            <td class="py-3">Daterra Coffee<br></td>
+          </tr>
+          <tr>
+            <td class="py-3">15:30 - 17:30 (2h)</td>
+            <td class="py-3">Vides58 Specialty Coffees</td>
+            <td class="py-3">The Starbucks<br>Coffee Company</td>
+            <td class="py-3">Bloom Coffee Project</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!--/* 내용 + 버튼 */-->
+      <div class="">
+        <article>
+          <p>* The acaia and Cloud Catcher x Project Origin require reservations for private sessions. All other sessions are public and available to badge holders on the day.</p>
+          <p>* To enjoy cupping at the Acaia / Cloud Catcher x Project Origin, please make a reservation in advance using the button below.</p>
+          <p>* The cupping session of the Bloom Coffee Project will end at 5 PM, in line with the closing time of World of Coffee Jakarta.</p>
+        </article>
+        
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <a target="_blank" href="https://www.eventbrite.com/e/acaia-workshops-at-woc-jakarta-weigh-to-brew-and-dialling-in-delicious-tickets-1318583902949?aff=oddtdtcreator" class="component__button--primary-one component__button--primary-inherit gap-2">
+            <span>ACAIA</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSczvVpC010cS8w_7p4h7UrE4R0UjKIJ-mkGkt0TEZje1XVh3Q/closedform?pli=1"  class="component__button--primary-one component__button--primary-inherit gap-2">
+            <span>CLOUD CATCHER X PROJECT ORIGIN</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/*내용 + 버튼*/-->
+  <section class="component">
+    <div class="component__div">
+      <h1 class="component__title-font--middle">Rental Fee</h1>
+      
+      <ul class="cupping-rooms__ul fw-medium">
+        <li>Exhibitor: $1,000 / 1 Session</li>
+        <li>Non-Exhibitor of World of Jakarta 2025: $1,500 / 1 Session</li>
+        <li><span class="text-danger">*</span>Equipment for Cupping & Cleaning Fee Included</li>
+        
+      </ul>
+      
+      <div class="d-flex flex-column flex-md-row gap-3">
+        <a target="_blank" href="https://drive.google.com/file/d/1s6XH7dttn--eQxSSPHtzkaziT1Mlq8Mv/view?pli=1" class="component__button--primary-one component__button--primary-inherit gap-2">
+          <span>TERMS AND CONDITIONS</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!--/*스폰서*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="d-flex flex-column gap-4">
+        <h2 class="component__title-font--middle">Cupping Rooms is Supported by</h2>
+        
+        <div>
+          <h4 class="component__desc-font--big pb-3">Title & Cupping Bowls & Cupping Spoons Sponsor</h4>
+          <div class="d-grid gap-3" style="grid-template-columns: repeat(1, 1fr);">
+            <div class="component__button--primary-three component__button--primary-three--big">
+              <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/logo/new/32%EB%8F%84.png" alt="..." draggable="false" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="component__desc-font--big pb-3">Grinder & Scales Sponsor</h4>
+          <div class="d-grid gap-3" style="grid-template-columns: repeat(1, 1fr);">
+            <div class="component__button--primary-three component__button--primary-three--middle">
+              <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/cupping-rooms/logo%201-03.png" alt="..." draggable="false" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/*newsletter card*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="position-relative text-center">
+        <picture>
+          <!--/* 웹 (768px 이상)*/-->
+          <source srcset="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05.webp" media="(min-width: 768px)">
+          <!--/* 모바일 (기본)*/-->
+          <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05-m.webp" class="w-100" alt="..." height="300" draggable="false" loading="lazy">
+        </picture>
+        
+        <!--/* 흰색 오버레이*/-->
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-white-opacity-40"></div>
+        
+        <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center w-100 gap-5">
+          <div>
+            <h3 class="component__desc-font--big fw-bold mb-4">Stay updated with World of Coffee Jakarta Newsletter!</h3>
+            <p class="component__desc-font--middle m-0">Detailed schedule for each program will be noticed later.</p>
+            <p class="component__desc-font--middle m-0">Stay updated with World of Coffee Asia Newsletter!</p>
+          </div>
+          
+          <a href="/newsletter/subscribe" class="component__button--primary-one component__button--primary-dark gap-2">
+            <span>GET UPDATES</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/show-features/cupping-rooms.js" defer></script>
+</section>
+</html>

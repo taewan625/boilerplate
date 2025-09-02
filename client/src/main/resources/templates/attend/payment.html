@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  
+  <!--/* step 목록 */-->
+  <section class="component bg-light">
+    <div class="component__div">
+      <div class="d-flex justify-content-center">
+        <div class=" d-flex gap-3 gap-md-5 text-gray-500">
+          <div class="d-flex gap-2 payment__step--active payment__current-step js-evt__paymentTab" data-step="1">
+            <div class="payment__step-number d-flex justify-content-center align-items-center">1</div>
+            <div class="payment__step-label d-md-block js-evt__paymentTabTitle">Badge Information</div>
+          </div>
+          <div class="d-flex gap-2 js-evt__paymentTab" data-step="2">
+            <div class="payment__step-number d-flex justify-content-center align-items-center">2</div>
+            <div class="payment__step-label d-md-block d-none js-evt__paymentTabTitle">Personal Information</div>
+          </div>
+          <div class="d-flex gap-2 js-evt__paymentTab" data-step="3">
+            <div class="payment__step-number d-flex justify-content-center align-items-center">3</div>
+            <div class="payment__step-label d-md-block d-none js-evt__paymentTabTitle">Payment Details</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/* 카드 */-->
+  <section class="component">
+    <div class="component__div">
+      <div id="container" class="container">
+        <!--/* step1 */-->
+        <form id="stepOneForm">
+          <div class="js-evt__step d-flex flex-column gap-3 gap-md-5" data-step="1">
+            <h1 class="component__title-font--big">BADGE INFORMATION</h1>
+            <div>
+              <h1 class="component__title-font--middle">Select your ticket</h1>
+              <!--/* 동적 티켓 목록 */-->
+              <div class="row g-4 m-0 js-evt__errorPlacement" id="ticketList"></div>
+            </div>
+            
+            <div>
+              <h1 class="component__title-font--middle">Verify Your Email</h1>
+              <!--/* 이메일 인증 요청 */-->
+              <div class="mb-3">
+                <label for="email" class="form-label fw-medium">Email<span class="text-danger">*</span></label>
+                <div class="d-flex gap-2 flex-column flex-md-row">
+                  <div class="flex-grow-1">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email and get the verification code" maxlength="200" required/>
+                  </div>
+                  
+                  <!-- 버튼 -->
+                  <div class="flex-shrink-0">
+                    <button type="button" class="component__button--primary-one component__button--primary-inherit component__button--disabled h-50px w-100" id="verificationEmail">GET VERIFICATION CODE</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!--/* 인증 검증 */-->
+              <div id="verificationConFirmContent">
+                <div class="mb-3">
+                  <div class="d-flex gap-2 flex-column flex-md-row">
+                    <div class="flex-grow-1 js-evt__errorPlacement">
+                      <div class="position-relative">
+                        <input type="text" class="form-control pe-5 component__button--disabled" id="verificationCode" name="verificationCode" placeholder="Enter your verification code" maxlength="6">
+                        <span id="countdown" class="text-muted position-absolute top-50 end-0 translate-middle-y me-3"></span>
+                      </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                      <button type="button" class="component__button--primary-one component__button--primary-inherit component__button--disabled h-50px w-100" id="verificationConfirm">VERIFY AUTHENTICATION NUMBER</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--/* 사용자 정보 입력 영역 */-->
+            <div class="d-none" id="userDetailsContent">
+              <h1 class="component__title-font--middle">Enter Your Details</h1>
+              <div class="row mb-3">
+                <label for="firstName" class="form-label fw-medium col-12">Name<span class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" required maxlength="100">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required maxlength="100">
+                </div>
+              </div>
+              
+              <!--/* 회사, 직책*/-->
+              <div class="row mb-3">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="company" class="form-label fw-medium col-12">Company<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="company" name="company" placeholder="Enter your company" required maxlength="100">
+                </div>
+                
+                <div class="col-12 col-md-6">
+                  <label for="jobTitle" class="form-label fw-medium col-12">Job title<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter your job title" required maxlength="500">
+                </div>
+              </div>
+              
+              <!--/* 국가, 도시 */-->
+              <div class="row mb-3">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <label for="countryId" class="form-label fw-medium col-12">Country<span class="text-danger">*</span></label>
+                  <select class="form-select" id="countryId" name="countryId" aria-label="Select">
+                    <option value=""></option>
+                  </select>
+                </div>
+                
+                <div class="col-12 col-md-8">
+                  <label for="city" class="form-label fw-medium col-12">City<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required maxlength="500">
+                </div>
+              </div>
+              
+              <!--/* 휴대전화번호 */-->
+              <div class="row mb-3">
+                <label for="countryCallingNumber" class="form-label fw-medium col-12">Mobile Number<span class="text-danger">*</span></label>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <select class="form-select" id="countryCallingNumber" name="countryCallingNumber" aria-label="Select">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-8">
+                  <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Enter your mobile number" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-flex gap-3">
+              <!--/* <button type="button" class="component__button&#45;&#45;primary-one component__button&#45;&#45;primary w-100 js-evt__prev" id="prev">PREV</button> */-->
+              <button type="button" class="component__button--primary-one component__button--primary-dark w-100 component__button--disabled js-evt__next" id="nextToStepTwo">NEXT</button>
+            </div>
+          </div>
+        </form>
+        
+        <!--/ * step2 */-->
+        <form id="stepTwoForm">
+          <div class="js-evt__step d-none d-flex flex-column gap-3 gap-md-5" data-step="2">
+            <div>
+              <h1 class="component__title-font--middle">PERSONAL INFORMATION</h1>
+              <p class="component__desc-font--middle">Please provide the following details to complete your purchase. Your information will be kept secure and only used for enhancing your service.</p>
+            </div>
+            
+            <!--/* Occupations */-->
+            <div>
+              <div class="row mb-3">
+                <label for="occupation" class="form-label fw-medium col-12">Occupations<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="occupation" name="occupation" aria-label="Select">
+                    <option value=""></option>
+                    <option value="Barista">Barista</option>
+                    <option value="Coffee Buyer">Coffee Buyer</option>
+                    <option value="Coffee Producer / Grower">Coffee Producer / Grower</option>
+                    <option value="Coffee Taster / Cupping">Coffee Taster / Cupping</option>
+                    <option value="Consultant">Consultant</option>
+                    <option value="Educator / Trainer">Educator / Trainer</option>
+                    <option value="Exporter">Exporter</option>
+                    <option value="Importer">Importer</option>
+                    <option value="Manager / Director">Manager / Director</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Owner / Senior Executive">Owner / Senior Executive</option>
+                    <option value="Research / Development">Research / Development</option>
+                    <option value="Roaster">Roaster</option>
+                    <option value="Sales / Business Development">Sales / Business Development</option>
+                    <option value="Technician / Engineer">Technician / Engineer</option>
+                    <option value="Trader">Trader</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/*INDUSTRY_VALUES*/-->
+              <div class="row mb-3">
+                <label for="industry" class="form-label fw-medium col-12">Which of the following best describes your current industry?<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="industry" name="industry" aria-label="Select Industry">
+                    <option value=""></option>
+                    <option value="Association">Association</option>
+                    <option value="Consultant">Consultant</option>
+                    <option value="Cooperative">Cooperative</option>
+                    <option value="Education">Education</option>
+                    <option value="Exporter">Exporter</option>
+                    <option value="Importer">Importer</option>
+                    <option value="Manufacturer / Supplier">Manufacturer / Supplier</option>
+                    <option value="Media">Media</option>
+                    <option value="Non-profit">Non-profit</option>
+                    <option value="Producer">Producer</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="Roaster Retailer">Roaster Retailer</option>
+                    <option value="Roaster Wholesaler">Roaster Wholesaler</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/* experience_VALUES */-->
+              <div class="row mb-3">
+                <label for="experience" class="form-label fw-medium col-12">How many years have you worked in the coffee industry?<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="experience" name="experience" aria-label="Select Experience Level">
+                    <option value=""></option>
+                    <option value="I do not work exclusively in the coffee industry">I do not work exclusively in the coffee industry</option>
+                    <option value="Less than one year">Less than one year</option>
+                    <option value="1-5 years">1-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11+ years">11+ years</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/*AUTHORITY_VALUES*/-->
+              <div class="row mb-3">
+                <label for="authority" class="form-label fw-medium col-12">What is your buying authority?<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="authority" name="authority" aria-label="Select Authority">
+                    <option value=""></option>
+                    <option value="Decision-maker">Decision-maker</option>
+                    <option value="Influencer">Influencer</option>
+                    <option value="No role">No role</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/*OBJECTIVE_VALUE*/-->
+              <div class="row mb-3">
+                <label for="objective" class="form-label fw-medium col-12">What is your primary objective of attending the World of Coffee Bangkok 2026?<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="objective" name="objective" aria-label="Select activity">
+                    <option value=""></option>
+                    <option value="Product Discovery">Product Discovery</option>
+                    <option value="Purchase / Order products">Purchase / Order products</option>
+                    <option value="Business Networking">Business Networking</option>
+                    <option value="Social / Community Connectivity">Social / Community Connectivity</option>
+                    <option value="Competitions">Competitions</option>
+                    <option value="Engaging and learning with Industry Leaders">Engaging and learning with Industry Leaders</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/*AGEGROUP_VALUES*/-->
+              <div class="row mb-3">
+                <label for="ageGroup" class="form-label fw-medium col-12">Please select your age<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="ageGroup" name="ageGroup" aria-label="Select Age">
+                    <option value=""></option>
+                    <option value="14-19">14-19</option>
+                    <option value="20-29">20-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50+">50+</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--/*INTEREST_VALUES*/-->
+              <div class="row mb-3">
+                <label for="interest" class="form-label fw-medium col-12">What products & services are you most interested in seeing at the show this year?<span class="text-danger">*</span></label>
+                <div class="col-12">
+                  <select class="form-select" id="interest" name="interest" aria-label="Select category">
+                    <option value=""></option>
+                    <option value="Accessories for Retailers">Accessories for Retailers</option>
+                    <option value="Allied Beverages">Allied Beverages</option>
+                    <option value="Allied Food (Pastries, cookies, cakes, candies)">Allied Food (Pastries, cookies, cakes, candies)</option>
+                    <option value="Brewing & Grinding Equipment (Commercial)">Brewing & Grinding Equipment (Commercial)</option>
+                    <option value="Cart & Kiosk Manufacturers">Cart & Kiosk Manufacturers</option>
+                    <option value="Chocolate Cocoa">Chocolate Cocoa</option>
+                    <option value="Equipment at Origin and Technology">Equipment at Origin and Technology</option>
+                    <option value="Flavorings Syrups Sweeteners Additives">Flavorings Syrups Sweeteners Additives</option>
+                    <option value="Green coffee">Green coffee</option>
+                    <option value="Growers requirements">Growers requirements</option>
+                    <option value="Industry Publications - shows - Coffee non-profits">Industry Publications - shows - Coffee non-profits</option>
+                    <option value="Packaging Equipment & Materials">Packaging Equipment & Materials</option>
+                    <option value="Professional Services">Professional Services</option>
+                    <option value="Retailers Requirements">Retailers Requirements</option>
+                    <option value="Roasted Coffee (Wholesale)">Roasted Coffee (Wholesale)</option>
+                    <option value="Roasters Requirements">Roasters Requirements</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Water Treatment products & services">Water Treatment products & services</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <button type="button" class="component__button--primary-one component__button--primary-gray w-100 js-evt__prev" id="prevToStepOne">PREV</button>
+              <button type="button" class="component__button--primary-one component__button--primary-dark w-100 component__button--disabled js-evt__next" id="nextToStepThree">NEXT</button>
+            </div>
+          </div>
+        </form>
+        
+        <!--/* step3 */-->
+        <form id="stepThreeForm">
+          <div class="js-evt__step d-none d-flex flex-column gap-3 gap-md-5" data-step="3">
+            <div>
+              <h1 class="component__title-font--middle">PAYMENT DETAILS</h1>
+              <p class="component__desc-font--middle">Please review your payment details before completing your purchase.</p>
+            </div>
+            
+            <!--/* customer & ticket detail */-->
+            <ul class="list-group mb-3">
+              <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+                <h4>Customer Information</h4>
+                <div class="row gap-2 gap-md-0">
+                  <!--/*<div class="col-12 col-md-3 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Prefix</span>
+                    <span>MS</span>
+                  </div>*/-->
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Name</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="attendeeName"></span>
+                  </div>
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Email</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="attendeeEmail"></span>
+                  </div>
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Mobile</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="attendeeMobileNumber"></span>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="list-group-item bg-light py-4 d-flex flex-column gap-3">
+                <h4>Ticket Details</h4>
+                <div class="row gap-2 gap-md-0">
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Ticket</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="ticketInfo"></span>
+                  </div>
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Quantity</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="ticketQuantity"></span>
+                  </div>
+                  <div class="col-12 col-md-4 d-flex flex-md-column justify-content-between gap-2">
+                    <span>Price per Ticket</span>
+                    <span class="fw-medium text-break text-md-start text-end" id="currencyPrice"></span>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="list-group-item d-flex justify-content-between py-4">
+                <h4 class="mb-0">Total Amount</h4>
+                <h4 class="mb-0 text-primary-600" id="totalAmount"></h4>
+              </li>
+            </ul>
+            
+            <!--/* notice & policy 영역 */-->
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Notice</h4>
+                    <p class="card-text">To proceed with the payment successfully, please ensure that your pop-up blocker is disabled. We recommend using Chrome instead of Safari, and after disabling the pop-up blocker, please attempt the payment again.</p>
+                    <p class="card-text">Among the cards issued in South Korea, <span class="text-danger">Hana Card & Woori Card</span> is currently unavailable for payment.</p>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Registration Cancellation Policy</h4>
+                    <p class="card-text text-danger">All tickets sales are final, non-refundable and non-transferable.</p>
+                    <p class="card-text">Payment Restrictions Due to PG Company Policy</p>
+                    <ul class="card-text">
+                      <li>Maximum monthly transactions per card: 5 times</li>
+                      <li>Maximum approval limit per transaction on the same card: USD 3,000</li>
+                      <li>Maximum approval limit per month on the same card: USD 3,000</li>
+                    </ul>
+                    
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" value="true" id="policyAgree" name="policyAgree">
+                  <label for="policyAgree" class="form-check-label">I have read and agree to the World of coffee Asia.</label>
+                  <span class="cursor-pointer text-primary-600 js-evt__policyModal" data-name="terms">Show Policies</span>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" value="true" id="privacyAgree" name="privacyAgree">
+                  <label for="privacyAgree" class="form-check-label">To complete your registration for World of coffee Asia, you must read and agree to the </label>
+                  <span class="cursor-pointer text-primary-600 js-evt__policyModal" data-name="privacy">Privacy Policy</span>
+                  <label for="privacyAgree" class="form-check-label">of Convention Data Services.</label>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="d-flex gap-3">
+              <button type="button" class="component__button--primary-one component__button--primary-gray w-100 js-evt__prev" id="prevToStepTwo">PREV</button>
+              <button type="button" class="component__button--primary-one component__button--primary-dark w-100 component__button--disabled js-evt__next" id="submit">CHECK OUT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.iamport.kr/v1/iamport.js" defer></script>
+  <script src="/static/js/attend/payment.js" defer></script>
+</section>
+
+</html>

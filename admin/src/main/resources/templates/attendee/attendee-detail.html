@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}">>
+
+<div layout:fragment="content-fragment" class="container-fluid flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">ATTENDEE /</span> DETAILS</h4>
+
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="card mb-3">
+                <h5 class="card-header">EXHIBITION</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="exhibitionName">EXHIBITION</label>
+                                <input type="text" class="form-control-plaintext" id="exhibitionName" disabled readonly>
+                                <input type="hidden" class="form-control" id="exhibitionId" readonly>
+                                <input type="hidden" class="form-control" id="id" readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="barcode">BARCODE</label>
+                                <input type="text" class="form-control-plaintext" id="barcode" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label class="form-label" for="badgeType">BADGE TYPE</label>
+                                <input type="text" class="form-control-plaintext" id="badgeType" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label class="form-label" for="ticketType">TICKET TYPE</label>
+                                <input type="text" class="form-control-plaintext" id="ticketType" disabled readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5 class="card-header">ATTENDEE INFO</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="fullName">FULL NAME</label>
+                                <input type="text" class="form-control-plaintext" id="fullName" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="country">COUNTRY</label>
+                                <input type="text" class="form-control-plaintext" id="country" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="company">COMPANY</label>
+                                <input type="text" class="form-control-plaintext" id="company" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="jobTitle">JOB TITLE</label>
+                                <input type="text" class="form-control-plaintext" id="jobTitle" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label class="form-label" for="mobileNumber">MOBILE NUMBER</label>
+                                <input type="text" class="form-control-plaintext" id="mobileNumber" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label class="form-label" for="email">EMAIL</label>
+                                <input type="text" class="form-control-plaintext" id="email" disabled readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card h-100">
+                <h5 class="card-header">ORDER & PAYMENT</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="orderNumber">ORDER NUMBER</label>
+                                <input type="text" class="form-control-plaintext" id="orderNumber" disabled readonly>
+                                <input type="hidden" class="form-control" id="impUid" readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="orderDate">ORDER DATE</label>
+                                <input type="text" class="form-control-plaintext" id="orderDate" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="currency">CURRENCY</label>
+                                <input type="text" class="form-control-plaintext" id="currency" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="amount">AMOUNT</label>
+                                <input type="text" class="form-control-plaintext" id="amount" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="quantity">QUANTITY</label>
+                                <input type="text" class="form-control-plaintext" id="quantity" disabled readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="status">STATUS</label>
+                                <input type="text" class="form-control-plaintext" id="status" disabled readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="paidAt">PAID DATE</label>
+                                <input type="text" class="form-control-plaintext" id="paidAt" disabled readonly>
+                            </div>
+                            <div>
+                                <label class="form-label" for="cancelledAt">CANCELLED DATE</label>
+                                <input type="text" class="form-control-plaintext" id="cancelledAt" disabled readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card my-3">
+                <h5 class="card-header">PERSONAL INFO</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <p class="form-label">Occupations</p>
+                                <input type="text" class="form-control-plaintext" id="occupation" disabled readonly>
+                            </div>
+                            <div class="mb-3">
+                                <p class="form-label">Which of the following best describes your current industry? </p>
+                                <input type="text" class="form-control-plaintext" id="industry" disabled readonly>
+                            </div>
+                            <div class="mb-3">
+                                <p class="form-label">How many years have you worked in the coffee industry?</p>
+                                <input type="text" class="form-control-plaintext" id="experience" disabled readonly>
+                            </div>
+                            <div>
+                                <p class="form-label">What is your buying authority?</p>
+                                <input type="text" class="form-control-plaintext" id="authority" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <p class="form-label">What is your primary objective of attending the World of Coffee Jakarta 2025?</p>
+                                <input type="text" class="form-control-plaintext" id="objective" disabled readonly>
+                            </div>
+                            <div class="mb-3">
+                                <p class="form-label">Please select your age</p>
+                                <input type="text" class="form-control-plaintext" id="ageGroup" disabled readonly>
+                            </div>
+                            <div class="">
+                                <p class="form-label">What products & services are you most interested in seeing at the show this year? </p>
+                                <input type="text" class="form-control-plaintext" id="interest" disabled readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-secondary me-1" id="btn-pre"><i class='bx bx-arrow-back'></i> List</button>
+                </div>
+
+                <div class="col-6">
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            <button class="btn btn-primary me-1" id="btn-send-barcode"><i class='bx bx-mail-send'></i> Send Barcode</button>
+                            <button class="btn btn-danger me-1" id="btn-payment-refund"><i class='bx bxs-error'></i> Refund</button>
+                            <button class="btn btn-primary ms-1" data-bs-toggle="modal" data-bs-target="#attendee-update-modal"><i class='bx bx-edit' ></i> Modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="attendee-update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <form class="modal-content" id="modify-form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-registry-title">MODIFY ATTENDEE</h5>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="modify-first-name" class="form-label">FIRST NAME</label>
+                                <input type="text" id="modify-first-name" name="modifyFirstName" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="modify-last-name" class="form-label">LAST NAME</label>
+                                <input type="text" id="modify-last-name" name="modifyLastName" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="modify-company" class="form-label">COMPANY</label>
+                                <input type="text" id="modify-company" name="modifyCompany" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="modify-job-title" class="form-label">JOB TITLE</label>
+                                <input type="text" id="modify-job-title" name="modifyJobTitle" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="modify-country">Country</label>
+                                <select id="modify-country" name="modifyCountry" class="form-select"></select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="modify-calling">Mobile Number</label>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <select id="modify-calling" name="modifyCalling" class="form-select"></select>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" name="modifyMobile" id="modify-mobile">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" id="btn-cancel">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/attendee/attendee-detail.js" defer></script>
+
+</div>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+    <!--/* schedule event */-->
+    <section class="component">
+        <div class="component__div">
+            <h1 class="component__title-font--big">2025 SCHEDULE OF EVENTS</h1>
+            <h2 class="component__title-font--middle">This schedule is subject to change depending on the situations</h2>
+
+            <div class="d-flex flex-column flex-md-row gap-md-3 gap-1">
+                <div class="d-flex align-items-center gap-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.75 2.62488V6.37488M8.25 2.62488V6.37488M3.5625 10.1249H20.4375M5.4375 4.49988H18.5625C19.598 4.49988 20.4375 5.33934 20.4375 6.37488V19.4999C20.4375 20.5354 19.598 21.3749 18.5625 21.3749H5.4375C4.40197 21.3749 3.5625 20.5354 3.5625 19.4999V6.37488C3.5625 5.33934 4.40197 4.49988 5.4375 4.49988Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="fs-18px fs-md-24px fw-medium">15-17 MAY 2025</span>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3332 9.33333C19.3332 5.28333 16.0498 2 11.9998 2C7.94984 2 4.6665 5.28333 4.6665 9.33333C4.6665 14.6667 11.9998 22 11.9998 22C11.9998 22 19.3332 14.6667 19.3332 9.33333Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+                        <path d="M11.9998 12C13.4725 12 14.6664 10.8061 14.6664 9.33333C14.6664 7.86057 13.4725 6.66667 11.9998 6.66667C10.527 6.66667 9.33309 7.86057 9.33309 9.33333C9.33309 10.8061 10.527 12 11.9998 12Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="fs-18px fs-md-24px fw-medium">JICC, Jakarta, Indonesia</span>
+                </div>
+            </div>
+            <!--/* schedule tab */-->
+            <nav class="fs-18px fs-md-22px">
+                <div class="nav nav-tabs nav-fill flex-nowrap" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-day1-tab" data-bs-toggle="tab" data-bs-target="#day1" type="button" role="tab" aria-controls="day1" aria-selected="true">
+                        Day 1 <span class="d-none d-md-inline">(14 May 2025)</span>
+                    </button>
+                    <!--/* day1과 동일한 일정이여서 #day1 과 매핑 */-->
+                    <button class="nav-link" id="nav-day2-tab" data-bs-toggle="tab" data-bs-target="#day1" type="button" role="tab" aria-controls="day1" aria-selected="false">
+                        Day 2 <span class="d-none d-md-inline">(15 May 2025)</span>
+                    </button>
+                    <button class="nav-link" id="nav-day3-tab" data-bs-toggle="tab" data-bs-target="#day3" type="button" role="tab" aria-controls="day3" aria-selected="false">
+                        Day 3 <span class="d-none d-md-inline">(16 May 2025)</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!--/* schedule content */-->
+            <div class="tab-content fs-18px fs-md-24px" id="nav-tabContent">
+                <!--/* day1 */-->
+                <div class="tab-pane outline-none fade show active" id="day1" role="tabpanel" aria-labelledby="day1-tab" tabindex="0">
+                    <div class="component__schedule-container">
+                        <!--/* Group 1 */-->
+                        <div class="component__schedule-group">
+                            <div class="component__schedule-logo">
+                                <img src="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/logo/bangkok-horizontal.webp" alt="Logo 1" width="100" height="40" draggable="false" loading="lazy"/>
+                            </div>
+                            <div class="component__schedule-content">
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">World of Coffee Jakarta Exhibition</div>
+                                    <div class="component__schedule-location">Main Lobby, Plenary Hall, Cendrawasih Hall, Assembly Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Roaster Village</div>
+                                    <div class="component__schedule-location">Cendrawasih Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Producer Village</div>
+                                    <div class="component__schedule-location ">Assembly Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">SCA Community Lounge</div>
+                                    <div class="component__schedule-location">Main Lobby SCA Community Lounge(L318)</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Cupping Rooms</div>
+                                    <div class="component__schedule-location">Assembly Hall Cupping Rooms(AS225)</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">SCA Lecture Series</div>
+                                    <div class="component__schedule-location">Lower Lobby, Merak Room 3</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--/* Group 2 */-->
+                        <div class="component__schedule-group">
+                            <div class="component__schedule-logo">
+                                <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/logo/WCC_JAKARTA_color.webp" alt="Logo 2" width="100" height="40" draggable="false" loading="lazy"/>
+                            </div>
+                            <div class="component__schedule-content">
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">World Brewers Cup 2025</div>
+                                    <div class="component__schedule-location">Plenary Hall WBrC Stage(PL400)</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Brew Bars</div>
+                                    <div class="component__schedule-location">Plenary Hall Brew Bars(PL401)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/* day2
+                <div class="tab-pane fade" id="day2" role="tabpanel" aria-labelledby="day2-tab" tabindex="1">...</div>
+                */-->
+                <!--/* day3 */-->
+                <div class="tab-pane outline-none fade show" id="day3" role="tabpanel" aria-labelledby="day3-tab" tabindex="2">
+                    <div class="component__schedule-container">
+                        <!--/* Group 1 */-->
+                        <div class="component__schedule-group">
+                            <div class="component__schedule-logo">
+                                <img src="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/logo/bangkok-horizontal.webp" alt="Logo 1" width="100" height="40" />
+                            </div>
+                            <div class="component__schedule-content">
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">World of Coffee Jakarta Exhibition</div>
+                                    <div class="component__schedule-location">Main Lobby, Plenary Hall, Cendrawasih Hall, Assembly Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Roaster Village</div>
+                                    <div class="component__schedule-location">Cendrawasih Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Producer Village</div>
+                                    <div class="component__schedule-location">Assembly Hall</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">SCA Community Lounge</div>
+                                    <div class="component__schedule-location">Main Lobby SCA Community Lounge(L318)</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Cupping Rooms</div>
+                                    <div class="component__schedule-location">Assembly Hall Cupping Rooms(AS225)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--/* Group 2 */-->
+                        <div class="component__schedule-group">
+                            <div class="component__schedule-logo">
+                                <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/logo/WCC_JAKARTA_color.webp" alt="Logo 2" width="100" height="40" draggable="false" loading="lazy"/>
+                            </div>
+                            <div class="component__schedule-content">
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">World Brewers Cup 2025</div>
+                                    <div class="component__schedule-location">Plenary Hall WBrC Stage(PL400)</div>
+                                </div>
+                                <div class="component__schedule-item">
+                                    <div class="component__schedule-title">Brew Bars</div>
+                                    <div class="component__schedule-location">Plenary Hall Brew Bars(PL401)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--/* newsletter card */-->
+    <section class="component">
+        <div class="component__div">
+            <div class="position-relative text-center">
+                <picture>
+                    <!--/* 웹 (768px 이상) */-->
+                    <source srcset="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05.webp" media="(min-width: 768px)">
+                    <!--/* 모바일 (기본) */-->
+                    <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05-m.webp" class="w-100" alt="..." height="300" draggable="false" loading="lazy">
+                </picture>
+                
+                <!--/* 흰색 오버레이 */-->
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-white-opacity-40"></div>
+                
+                <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center w-100 gap-5">
+                    <div>
+                        <h3 class="component__desc-font--big fw-bold mb-4">Stay updated with World of Coffee Jakarta Newsletter!</h3>
+                        <p class="component__desc-font--middle m-0">Detailed schedule for each program will be noticed later.</p>
+                        <p class="component__desc-font--middle m-0">Stay updated with World of Coffee Asia Newsletter!</p>
+                    </div>
+                    
+                    <a href="/newsletter/subscribe" class="component__button--primary-one component__button--primary-dark gap-2">
+                        <span>GET UPDATES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+</html>

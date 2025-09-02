@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html
+        lang="kr"
+        class="light-style customizer-hide"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
+>
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>World of Coffee admin</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/static/fonts/public-sans/public-sans.css"/>
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/static/vendor/fonts/boxicons.css" type="text/css"/>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/static/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/static/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+
+    <!-- Page -->
+    <link rel="stylesheet" href="/static/vendor/css/pages/page-auth.css" />
+    <style>
+        .form-control.error {
+            border: 1px solid #ff3e1d;: ;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Content -->
+
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+            <!-- Register -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-2">World of Coffee Asia! ☕️</h4>
+                    <p class="mb-4">Please sign-in to your account</p>
+
+                    <form id="formAuthentication" class="mb-3" action="/login" method="POST">
+                        <div class="mb-3 form-field" >
+                            <label for="email" class="form-label">Id</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="email"
+                                    name="username"
+                                    placeholder="Id"
+                                    required
+                                    autofocus
+                                    autocomplete="username"
+                            />
+                        </div>
+                        <div class="mb-3 form-field" >
+                            <label class="form-label" for="password">Password</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control"
+                                    name="password"
+                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                    aria-describedby="password"
+                                    required
+                                    autocomplete="current-password"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember-me" />
+                                <label class="form-check-label" for="remember-me"> Remember Me </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /Register -->
+        </div>
+    </div>
+</div>
+
+<script src="/static/vendor/libs/jquery/jquery.min.js" defer></script>
+<script src="/static/vendor/libs/jquery-validation/jquery.validate.min.js" defer></script>
+<script src="/static/js/authentication/login.js" defer></script>
+
+</body>
+</html>

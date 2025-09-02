@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}">>
+
+<div layout:fragment="content-fragment" class="container-fluid flex-grow-1 container-p-y">
+  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">EXHIBITION / TICKET /</span> DETAILS</h4>
+
+
+  <div class="card mb-3">
+    <h5 class="card-header">TICKET</h5>
+    <div class="card-body">
+      <div class="row">
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="form-label" for="ticketInfo">NAME</label>
+            <input type="text" class="form-control-plaintext" id="ticketInfo" readonly disabled>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="typeName">TYPE</label>
+            <input type="text" class="form-control-plaintext" id="typeName" readonly disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="startDate">SALES START</label>
+            <p class="form-p-plaintext" id="startDate">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="typeName">PRICE</label>
+            <input type="text" class="form-control-plaintext" id="price-datatable" readonly disabled>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="ticketName">BADGE TYPE</label>
+            <input type="text" class="form-control-plaintext" id="ticketName" readonly disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="endDate">SALES END</label>
+            <p class="form-p-plaintext" id="endDate">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="status">STATUS</label>
+            <input type="text" class="form-control-plaintext" id="status" readonly disabled>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-secondary me-1" id="btn-pre"><i class='bx bx-arrow-back'></i> List</button>
+        </div>
+        <div class="col-6">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <button class="btn btn-danger ms-1" id="btn-delete"><i class='bx bx-trash' ></i> Delete</button>
+              <button class="btn btn-secondary ms-1" id="btn-unpublish"><i class='bx bx-loader-circle'></i> Unpublish</button>
+              <button class="btn btn-success ms-1" id="btn-publish"><i class='bx bx-check'></i> Publish</button>
+              <button class="btn btn-primary  ms-1" id="btn-update"><i class='bx bx-edit'></i> Modify</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/exhibition/ticket/ticket-detail.js" defer></script>
+</div>
+
+</html>

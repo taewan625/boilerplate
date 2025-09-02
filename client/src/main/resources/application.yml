@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: client
+
+  profiles:
+    active: local
+    include: common
+
+server:
+  port: 8050
+  servlet:
+    context-path: /

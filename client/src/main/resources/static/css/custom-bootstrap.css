@@ -1,0 +1,140 @@
+/* Accordion 헤더(버튼) 커스텀 */
+.accordion-flush .accordion-button {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--bs-gray-600) !important;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.accordion-flush .accordion-button:focus,
+.accordion-flush .accordion-button:hover,
+.accordion-flush .accordion-button:not(.collapsed) {
+  background: none !important;
+  color: var(--primary-600) !important; /* active/hover/열림: 주황색 */
+  border: none !important;
+  box-shadow: none !important;
+}
+.accordion-flush .accordion-button:not(.collapsed)::after {
+  /* TODO: bootstrap 기본 아이콘의 색상 변경 시, var() 변수 사용 불가하여 filter 적용. 
+  추후 svg 아이콘으로 교체하여 색상 적용 필요
+  */
+  filter: brightness(0) saturate(100%) invert(53%) sepia(86%) saturate(2092%) hue-rotate(346deg) brightness(97%) contrast(101%);
+}
+
+/* Accordion 내부 list-group-item 커스텀 */
+.accordion-flush .list-group-item {
+  background: none !important;
+  border: none !important;
+  color: var(--bs-gray-600) !important;
+}
+
+.accordion-flush .list-group-item:hover,
+.accordion-flush .list-group-item:focus,
+.accordion-flush .list-group-item.active {
+  background: none !important;
+  color: var(--primary-600) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* breadcrumb 커스텀 */
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breadcrumb-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--bs-gray-600);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--primary-600);
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bs-gray-900);
+}
+
+/* schedule tab 색상 변경 */
+/* 기본 탭 색상은 검정 */
+.nav-tabs .nav-link {
+  color: var(--bs-gray-500);
+  font-weight: 500;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* 활성화된 탭 버튼 */
+.nav-tabs .nav-link.active {
+  color: var(--bs-white);
+  border-color: var(--primary-600);
+  background-color: var(--primary-600);
+}
+
+/* 비활성 탭에만 hover/focus 스타일 적용 */
+.nav-tabs .nav-link:not(.active):hover {
+  color: var(--primary-600);
+  border-color: var(--primary-600);
+}
+.nav-tabs .nav-link:not(.active):focus {
+  color: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+/* form 요소 색상 커스텀 */
+input.form-control,
+textarea.form-control,
+select.form-select {
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-select:focus {
+  border-color: var(--bs-gray-700);
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+/* 포커스 테두리 제거 또는 조정하고 싶을 때 */
+.form-check-input:focus {
+  box-shadow: none;
+  border-color: var(--primary-600);
+}
+
+/* 캐러셀 색상 */
+.carousel-indicators [data-bs-target],
+.carousel-indicators .active {
+  background-color: var(--primary-600);
+}
+
+/* border color */
+.border-primary {
+  --bs-border-opacity: 1;
+  border-color: var(--primary-600) !important;
+}
+
+/* invalid icon 숨김처리 */
+.form-control.is-invalid {
+  background-image: none;
+}

@@ -1,0 +1,5 @@
+#jasypt
+jasypt:
+  secret-key: vpSrTDInNsUvcvn53bkSFQ2yFB+cm+m+Cw5JPErqUuk=
+  encryptor:
+    bean: jasyptStringEncryptor

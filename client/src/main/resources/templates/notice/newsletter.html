@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* new letter 이동 버튼 및 검색 영역  */-->
+  <section class="component">
+    <div class="component__div">
+      <a href="/newsletter/subscribe" class="component__button--primary-one component__button--primary-dark">
+        <div>SUBSCRIBE TO NEWSLETTER</div>
+      </a>
+      
+      <!--/* search button */-->
+      <div class="input-group" id="searchGroup">
+        <input type="text" class="form-control exhibitor-list__placeholder-size h-48px" id="searchText"
+               placeholder="Please enter the newsletter title." aria-label="Please enter the newsletter title."
+               aria-describedby="Please enter the newsletter title.">
+        <div class="position-absolute top-50 translate-middle-y end-0 me-3">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M20.9526 22.0135C21.2455 22.3064 21.7204 22.3064 22.0133 22.0135C22.3062 21.7207 22.3062 21.2458 22.0133 20.9529L20.9526 22.0135ZM17.0466 10.1568C17.0466 13.9621 13.9618 17.0468 10.1566 17.0468V18.5468C14.7903 18.5468 18.5466 14.7905 18.5466 10.1568H17.0466ZM10.1566 17.0468C6.35136 17.0468 3.2666 13.9621 3.2666 10.1568H1.7666C1.7666 14.7905 5.52293 18.5468 10.1566 18.5468V17.0468ZM3.2666 10.1568C3.2666 6.3516 6.35136 3.26685 10.1566 3.26685V1.76685C5.52293 1.76685 1.7666 5.52318 1.7666 10.1568H3.2666ZM10.1566 3.26685C13.9618 3.26685 17.0466 6.3516 17.0466 10.1568H18.5466C18.5466 5.52318 14.7903 1.76685 10.1566 1.76685V3.26685ZM22.0133 20.9529L15.9369 14.8765L14.8763 15.9372L20.9526 22.0135L22.0133 20.9529Z"
+                fill="black"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/* 뉴스레터 정보 */-->
+  <section class="component border-top">
+    <div class="component__div position-relative">
+      <div class="row row-cols-2 row-cols-md-3 g-4" id="newsletters"></div>
+      
+      <!--/* no search data */-->
+      <div class="d-none p-4 font-family-OnehungaSans text-center" id="noData">
+        <span class="coming__soon-font-big text-black">Sorry, no results for your search</span>
+      </div>
+      
+      <!--/* coming soon */-->
+      <div class="d-none d-flex flex-column justify-content-center align-items-center p-4 font-family-OnehungaSans border" id="comingSoon">
+        <span class="component__title-font--big">NEWSLETTER</span>
+        <span class="coming__soon-font-big">COMING SOON</span>
+        <span class="component__title-font--big">DON'T MISS OUT</span>
+      </div>
+      
+      <!--/* 로딩바 */-->
+      <div class="js-evt__loading text-center js-evt__loading d-none">
+        <div class="spinner-border text-primary-600" role="status"></div>
+      </div>
+      
+      <div id="observerSentinel"></div>
+    </div>
+  </section>
+  
+  <script src="/static/js/notice/newsletter.js" defer></script>
+</section>
+</html>

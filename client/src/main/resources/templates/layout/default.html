@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <!--/* head: meta info & css */-->
+    <th:block th:replace="~{layout/head :: head-fragment}"></th:block>
+    <body class="body">
+        <!--/* javascript: core js & plugin js */-->
+        <th:block th:replace="~{layout/javascript :: js-fragment}"></th:block>
+
+        <!--/* header: menu & banner & breadcrumb */-->
+        <th:block th:replace="~{layout/header :: header-fragment}"></th:block>
+
+        <!--/* 페이지별 content ps.flex-grow-1: content가 작을 경우도 browser가 차도록 처리 */-->
+        <main class="d-flex justify-content-center flex-grow-1">
+            <section layout:fragment="content-fragment" class="w-100"></section>
+        </main>
+
+        <!--/* footer */-->
+        <th:block th:replace="~{layout/footer :: footer-fragment}"></th:block>
+    </body>
+</html>

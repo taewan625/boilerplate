@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/*exhibitor Application slide img*/-->
+  <section class="component">
+    <div class="component__div">
+      <h1 class="component__title-font--big">BOOK YOUR BOOTH</h1>
+      
+      <!--/*슬라이드 이미지 : 다건인 경우 template*/-->
+      <section>
+          <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+              <!--/*하단 버튼*/-->
+              <div class="carousel-indicators"></div>
+              <!--/*이미지 영역*/-->
+              <div class="carousel-inner"></div>
+              <!--/*좌우 버튼*/-->
+          </div>
+      </section>
+    </div>
+  </section>
+  
+  <section class="component">
+    <div class="component__div">
+      <h2 class="component__title-font--middle">Reserve your space on the show floor connected with powerful industry network</h2>
+      <p class="component__desc-font--middle">Don't miss the opportunity to showcase your brand among global leaders in the specialty coffee industry.</p>
+      
+      <div class="d-flex flex-column flex-md-row justify-content-md-start gap-3 pt-3">
+        <button type="button" class="component__button--primary-one component__button--primary-inherit gap-2" id="priceTableDownload" onclick="download_file()">
+          <span>DOWNLOAD PRICE TABLE</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 14.2003L22 20.3242C22 20.477 21.9042 20.6001 21.7851 20.6001H2.21484C2.09582 20.6001 2 20.477 2 20.3242V14.2003M12 3.17822L12 17.1782M12 17.1782L6.74117 11.8054M12 17.1782L17.2588 11.8054" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <a href="/exhibitor-inquiry" class="component__button--primary-one component__button--primary-dark gap-2">
+          <span>BOOTH INQUIRY</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/exhibit/exhibitor-application.js" defer></script>
+</section>
+
+</html>

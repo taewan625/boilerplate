@@ -1,0 +1,48 @@
+.select2-container--default .select2-selection--single {
+    height: 50px;
+    padding: 12px 16px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select2-container--default .select2-selection--single:focus {
+    border-color: var(--bs-gray-700);
+    box-shadow: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    right: 10px;
+}
+
+/* 기본 hover 색상 변경 (드롭다운 내부) */
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--primary-600);
+    color: var(--bs-white);
+}
+
+/* 선택되지 않은 항목 hover 스타일 (보통 이 줄만 있으면 충분함) */
+.select2-container--default .select2-results__option:hover {
+    background-color: var(--primary-600);
+    color: var(--bs-black);
+}
+
+/* Bootstrap 유효성 스타일을 select2에 반영 */
+.select2-container--default.is-invalid .select2-selection--single {
+    border-color: var(--bs-form-invalid-border-color);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: var(--bs-secondary-color);
+    opacity: 1;
+    font-size: 16px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding: 0;
+}

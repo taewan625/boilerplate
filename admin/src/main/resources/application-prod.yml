@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(PJB7Kjyvh6QXjNr65n4b/2UhVrOzlAQ/+gi7tIhVrDaWrcgWExmWFzyEwFJkFWXy)
+    username: ENC(l/tTVaVw6wRcnAefHUW4Nw==)
+    password: ENC(uUKfC0ILlkgnKqssvLjph2otuRJW2Vij2FMid/bAECQ=)
+
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum.client: DEBUG
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-prod
+
+jwt:
+  cookie-domain: ops.worldofcoffee.asia
+  cookie-secure: false
+
+resource:
+  storage:
+    path:
+      upload: /tmp
+      download: /tmp
+    url: ENC(Uu5mXY2G1sHjMv9TMIUp551wbgbTgCQIufQqmjonw1aM6PCKY9Fejg5y6xpIYweU6QWO/DJrFCeNjKu0Tf1CdsjkcygRMowV)
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+payment:
+  webhook:
+    url: ENC(dDvAhkAg08BWePZXGEnkHP4hSJLjU0gdC0ZRSgScHs7UNja651C8X2upUCNgnj5XLYFrVnuox9yfOVU9JXa9Igu6aHOjW6oV)

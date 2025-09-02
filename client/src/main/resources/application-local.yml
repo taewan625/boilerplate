@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/manual
+    username: root
+    password: ex2233!@
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum.client: DEBUG
+    com.exporum.core: DEBUG
+
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-dev
+
+jwt:
+  cookie-domain: localhost
+  cookie-secure: false
+
+
+resource:
+  storage:
+    path:
+      upload:  /Users/taewan/Downloads/temp
+      download:  /Users/taewan/Downloads/temp
+      #download: classpath:/temp/download
+    url: ENC(dDQUnbh5WaJJydlUOSS+YEYkUdUNyozJXpj4Fq+Kqlf1Eh3yAnjaya2tf6u3AlqwpYmG8cXR6Fd8GDcaFG2zYQ==)
+
+
+payment:
+  imp:
+    init: ENC(0dWVaGpFPujC5yiLFjnmXyUv0eHuVXIO)
+    pg: ENC(Yj6s8hAci72opavkarhhjxGWVfBB1tpu8mNc0ot9laU=)
+  webhook:
+    url: ngrok-path/api/v1/woc/payment/webhook
+
+app:
+  referer:
+    exclude-domain: http://localhost:8050

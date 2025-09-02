@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>[World of Coffee 2025] Thank you for registering for World of Coffee Jakarta 2025</title>
+  <meta name="x-apple-disable-message-reformatting" />
+  <!--$-->
+</head>
+<body style="background-color:#ffffff;margin:0 auto;font-family:-apple-system, BlinkMacSystemFont">
+
+<div dir="ltr">
+  <div>
+    <div style="padding: 20px 0px; margin: 0 auto">
+      <table style="width: 100%" border="0">
+        <tbody>
+        <tr>
+          <td align="center">
+            <div style="width: 100%;
+										max-width: 600px;
+										background: #ffffff;
+										margin: 0px auto;">
+
+              <table
+                      style="width: 100%; border: 0"
+                      cellpadding="0"
+                      cellspacing="0"
+              >
+                <tbody>
+                <tr>
+                  <td style="font-size: 0; box-sizing: border-box">
+                    <img
+                            src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test/email-banner.png"
+                            alt=""
+                            style="
+															width: 100%;
+															display: inline;
+															vertical-align: bottom;
+															max-width: 100% !important;
+															border: 0;
+														"
+                            width="600"
+                            loading="lazy"
+                    />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <table style="width: 100%; border: 0" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                  <td
+                          style="
+														text-align: center;
+														font-size: 0;
+														box-sizing: border-box;
+														padding: 32px 0;
+													"
+                  >
+                    <img
+                            th:src="${barcodePath}"
+                            alt=""
+                            style="
+															display: inline;
+															vertical-align: bottom;
+															text-align: center;
+															border: 0;
+														"
+                            width="300"
+                            height="120"
+                            loading="lazy"
+                    />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <table
+                      style="width: 100%; border: 0"
+                      cellpadding="0"
+                      cellspacing="0"
+              >
+                <tbody>
+                <tr>
+                  <td
+                          style="
+														word-break: break-all;
+														text-align: left;
+														margin: 0px;
+														line-height: 1.7;
+														word-break: break-word;
+														font-size: 16px;
+														font-weight: 400;
+														font-family: Inter,noto sans kr, noto sans cjk kr,noto sans cjk, Malgun Gothic,apple sd gothic neo, nanum gothic, malgun gothic,dotum, arial, helvetica, Meiryo, MS Gothic,sans-serif !important;
+														color: #474747;
+														padding: 12px 20px 12px 20px;
+													"
+                  >
+                    <div>
+                                                    <span style="font-size: 24px;font-weight: 600; line-height: 140%; color: #000; " th:text="${'Dear '+firstName + ' ' + lastName}">Dear</span><br />
+													<span style="font-size: 16px; line-height: 140%; color: #000; ">
+													  Thank you for registering for the World of Coffee Jakarta 2025. <br/>
+													  We look forward to welcoming you to Jakarta, Indonesia, this coming May!<br /><br />
+                                                      This email contains important information regarding your registration.
+                                                      Please take a minute to review for accuracy and save this email for future reference.
+                                                      To expedite badge pick-up, bring this confirmation with you on your phone or a printed copy.</span>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+
+              <table style="width: 100%; background: white; border: 0;padding:24px 20px;" cellpadding="0" cellspacing="0">
+                <tbody style="background: #f7f7f7;">
+                <tr>
+                  <td style="word-break: break-all; text-align: left; margin: 0px; word-break: break-word; font-size: 24px;
+												font-family: 'Noto Sans KR', 'Noto Sans CJK KR', 'Noto Sans CJK', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Malgun Gothic', 'Dotum', 'Arial', 'Helvetica', 'Meiryo', 'MS Gothic', sans-serif !important;
+												color: #000000;
+												padding: 0 20px 24px 20px;">
+
+                    <table
+                            style="width: 100%;  border-collapse: collapse;"
+                            cellpadding="0"
+                            cellspacing="0"
+                    >
+                      <tbody>
+                      <tr>
+                        <td style="font-size: 24px; font-weight: 600; line-height: 120%;color: #252525; padding-bottom: 16px; padding-top: 24px;">
+                          Registration Information
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Registration No.
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${barcode}"
+                              >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Badge Type
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${badgeName}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Name
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${firstName + ' ' + lastName}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Job Title
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${jobTitle}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Company
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${company}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom:8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Country/City
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${country + ' / ' + city}"
+                              >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom:8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Phone
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${callingCode + ' ' + mobileNumber}"
+                              >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Email
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${email}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+
+
+                      <tbody>
+                      <tr>
+                        <td
+                                style="
+                  font-size: 24px;
+                  font-weight: 600;
+				  line-height: 120%;
+                  color: #252525;
+                  padding-bottom: 16px;
+				  padding-top:24px;
+                "
+                        >
+                          Receipt Information
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Order No.					  </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${orderNumber}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Date					  </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${paidAt}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Name
+                              </td>
+                              <td
+                                      style="width: 70%; text-align: right; font-weight: 600;"
+                                      th:text="${firstName + ' ' + lastName}"
+                              >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+
+
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Badge Type
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${badgeName}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+
+
+
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 30%; text-align: left;"
+                              >
+                                Item Total				  </td>
+                              <td
+                                      style="width: 70%; text-align: right;color: #474747; font-weight: 600; line-height: 120%;"
+                                      th:text="${currency + ' ' + amount}"
+                              >
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+
+                      </tbody>
+
+                      <tbody>
+                      <tr>
+                        <td
+                                style="
+                  font-size: 24px;
+                  font-weight: 600;
+				  line-height: 120%;
+                  color: #252525;
+                  padding-bottom: 16px;
+                  padding-top: 24px;
+                "
+                        >
+                          Location & Schedule Information			              </td>
+                      </tr>
+                      <tr>
+                        <td
+                                style="font-size: 18px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 600; width: 100%; text-align: left;"
+                              >
+                                Jakarta International Convention Center (JICC), Indonesia <br />
+                                <span style="font-weight: 500;">(former Jakarta Convention Center, JCC)</span>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;  padding-bottom: 8px;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 50%; text-align: left;"
+                              >
+                                Jl. Gatot Subroto No.1, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                                style="font-size: 18px; color: #474747; padding-bottom: 8px;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 600; width: 100%; text-align: left;"
+                              >
+                                Exhibit Hall opens to Attendees
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;  padding-bottom: 8px;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 50%; text-align: left;"
+                              >
+                                Thursday, May 15 - Friday, May 16 : 10:00 AM - 6:00 PM<br />
+                                (Last call for entrance : 5:30 PM) <br/>
+                                Saturday, May 17 : 10:00 AM – 5:00 PM<br/>
+                                (Last call for entrance : 4:30 PM)
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      </tbody>
+
+                      <tbody>
+                      <tr>
+                        <td
+                                style="
+                  font-size: 24px;
+                  font-weight: 600;
+				  line-height: 120%;
+                  color: #252525;
+                  padding-bottom: 16px;
+				  padding-top: 24px;
+                "
+                        >
+                          Badge pick-up            </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 100%; text-align: left; color: #474747;"
+                              >
+                                Badge pick-up will be at the on-site registration desk.
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+
+                      <tbody>
+                      <tr>
+                        <td
+                                style="
+                  font-size: 24px;
+                  font-weight: 600;
+				  line-height: 120%;
+                  color: #252525;
+                  padding-bottom: 16px;
+				  padding-top: 24px;
+                "
+                        >
+                          Registration Cancellation Policy          </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 100%; text-align: left; color: #DC3545;"
+                              >
+                                All tickets sales are final, non-refundable and non-transferable.					</tr>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+
+                      <tbody>
+                      <tr>
+                        <td
+                                style="
+                  font-size: 24px;
+                  font-weight: 600;
+				  line-height: 120%;
+                  color: #252525;
+                  padding-bottom: 16px;
+				  padding-top: 24px;
+                "
+                        >
+                          Inquiry        </tr>
+                      <tr>
+                        <td
+                                style="font-size: 16px; color: #474747;"
+                        >
+                          <table style="width: 100%; border: 0; table-layout: fixed;">
+                            <tr>
+                              <td
+                                      style="font-weight: 400; width: 100%; text-align: left; color: #474747;"
+                              >
+                                For questions, email us at		 <a
+                                      style="color:#474747 ;"
+                                      href="mailto:info@worldofcoffee.asia">info@worldofcoffee.asia</a>			</tr>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+
+                    </table>
+
+                  </td>
+                </tr>
+                </tbody>
+
+              </table>
+
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!--/$-->
+</body>
+</html>

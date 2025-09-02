@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: admin
+
+  profiles:
+    active: local
+    include: common
+
+server:
+  port: 8010
+  servlet:
+    context-path: /

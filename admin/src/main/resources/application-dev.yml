@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(ax1nO1PyjqdmqkUBdGud+OjbD+FPkzLu1FQ3ucCmnKxBjqNCDdtPptWpCFToAz5J)
+    username: ENC(bYBv14QKHr620NX39RDt+A==)
+    password: ENC(32W8ZIrBYMRu31l301tGHwJhvaz4pRyw)
+
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum.admin: DEBUG
+    com.exporum.core: DEBUG
+
+org:
+  apache:
+    catalina:
+      level: DEBUG
+
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-dev
+
+jwt:
+  cookie-domain: 192.168.0.252
+  cookie-secure: false
+
+
+resource:
+  storage:
+    path:
+      upload: /tmp
+      download: /tmp
+      #download: classpath:/temp/download
+    url: ENC(dDQUnbh5WaJJydlUOSS+YEYkUdUNyozJXpj4Fq+Kqlf1Eh3yAnjaya2tf6u3AlqwpYmG8cXR6Fd8GDcaFG2zYQ==)
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+payment:
+  webhook:
+    url: ENC(dDvAhkAg08BWePZXGEnkHP4hSJLjU0gdC0ZRSgScHs7UNja651C8X2upUCNgnj5XLYFrVnuox9yfOVU9JXa9Igu6aHOjW6oV)

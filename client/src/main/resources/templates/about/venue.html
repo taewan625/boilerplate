@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+    <section class="component">
+        <div class="component__div">
+            <h1 class="component__title-font--big">JAKARTA INTERNATIONAL CONVENTION CENTER(JICC)</h1>
+            <article>
+                <p>Jakarta International Convention Center (JICC), established in 1992, is a premier venue in central Jakarta, renowned for hosting prestigious international and local events. (former Jakarta Convention Center, JCC)</p>
+                <p>Located in the vibrant Senayan area, it offers versatile event spaces suitable for conferences, exhibitions, and cultural gatherings. With state-of-the-art facilities, excellent accessibility, and proximity to major business districts, hotels, and shopping centers.</p>
+                <p>JICC is a hub for seamless and successful events in the heart of Indonesia's capital. Its reputation and strategic location make it a top choice for global and regional events.</p>
+            </article>
+            <!--/* 필요 시, google Maps JS API 적용 */-->
+            <div class="ratio ratio-16x9" id="mapContainer">
+                <!--/* 로딩 gif */-->
+                <div class="component__wrap-loading d-none js-evt__loading">
+                    <div class="spinner-border text-primary-600" role="status"></div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a target="_blank" href="https://www.jcc.co.id" class="component__button--primary-one component__button--primary-inherit">
+                    <span>DISCOVER MORE</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="/static/js/about/venue.js" defer></script>
+</section>
+
+</html>

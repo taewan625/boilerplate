@@ -1,0 +1,136 @@
+logging:
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n"
+
+exhibition:
+  code: 68494
+  default-time-zone: Asia/Seoul
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.exporum.client.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+application:
+  api:
+    version: v1/woc
+    admin: v1/admin
+  task:
+    scheduler:
+      core-size: 4
+      max-size: 16
+  mail:
+    interval: 2000 # mili-seconds
+  storage:
+    file:
+      root: 'files'
+
+verification:
+  configuration:
+    mail:
+      expire: 5 # 5 minute
+
+ncp:
+  acl:
+    public: public-read
+  region: kr-standard
+  secret-key: ENC(UaxpGo1FcCkTxT+EmLpplA74pt5DmUs5Rx6ORmDJQ32DAjJocnvz6Uubp1aiNgAB/JiYncT/rqI=)
+  access-key: ENC(eFrhJfgrxLw+dJ56VnhLNVIJHSuwWFUVkkEjNAzQjAo=)
+  object-storage:
+    end-point: https://kr.object.ncloudstorage.com
+    path:
+      badge: woc/badge/
+      logo: woc/logo/
+      exhibitor: woc/exhibitor/
+      banner: woc/banner/
+      notice: woc/notice/
+      press: woc/press-center/
+      floor-plan: woc/floor-plan/
+      partner: woc/partner/
+      popup: woc/popup/
+  mail:
+    domain: ENC(fE26lsSPIVkkMecChLWwqr0QblmInf7sTJOYyGinx99U4ugH7oWDdA==)
+    url: ENC(qSRl9d0aeM3gi2o7Djoi0wb3TFhdsjec)
+    sender-email: ENC(hAxDsvV5ao7DfH62ZwO+dZlP36dPV4hz9Yab/GFS3QI=)
+    sender-name: ENC(wKdWArGXIy3TSNGdYzjh4bwelZE09r3N0SMh/7gCI94=)
+
+port-one:
+  api-key: ENC(pEM/kZYoRmi5hu9k0dkkxx5pIMNfiWegWnQbQ02OF0k=)
+  api-secret: ENC(FIMJp2EjOoG518DGtNInR62wIPVq4ope25X6QApOcOpQ3ksW6NdmKp9T3Zp2UDdFtUsF59KZzGKQIvb4vaFQEP4bi4KhZADIUf92vXgKuUT7BYQ2/EJ8cSr/u4700yCi)
+  domain: https://api.iamport.kr
+  accss-token-url: /users/getToken
+  payments-url: /payments
+  payments-cancel-url: /payments/cancel
+
+
+    #url: /api/v1/payment/webhook
+#ncp:
+#  mail:
+#    domain: https://mail.apigw.ntruss.com
+#    url: /api/v1/mails
+#    secret-key: rdTxu6k5OUtNTnQxuX9AOg9Fe6ALtM2MsXLpgz0e
+#    access-key: 5gLJZ7WuP4YXkpBOt8HZ
+#    sender-email: info@worldofcoffee.asia
+#    sender-name: worldofcoffee.asia
+#    region: kr-standard
+
+
+jwt:
+  secret-key: pVCtKmO+wu0zAeYKFR2+N4Icg3gge6n1ihnkOZ+0Lko=
+  expiration-time: 1d
+  refresh-expiration-time: 7d
+  # 시간 단위 1h, 30m, 1d
+
+
+
+
+#jasypt
+jasypt:
+  secret-key: vpSrTDInNsUvcvn53bkSFQ2yFB+cm+m+Cw5JPErqUuk=
+  encryptor:
+    bean: jasyptStringEncryptor
+
+
+spring:
+  messages:
+    basename: messages/message
+    encoding: UTF-8
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    cache: false
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:/static/
+      add-mappings: true
+  servlet:
+    multipart:
+      max-request-size: 20MB
+      max-file-size: 10MB
+
+
+#springdoc configuration
+springdoc:
+  override-with-generic-response: false
+  default-produces-media-type: application/json
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: '/swagger-ui.html'
+    tags-sorter: alpha
+    operations-sorter: alpha
+    doc-expansion: none
+    displayRequestDuration: true
+    groups-order: DESC
+
+
+

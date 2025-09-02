@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* pdf component */-->
+  <section class="component">
+    <div class="component__div">
+      <!--/* relative area */-->
+      <div class="position-relative">
+        <!--/* 로딩 gif */-->
+        <div class="component__wrap-loading d-none js-evt__loading">
+          <div class="spinner-border text-primary-600" role="status"></div>
+        </div>
+
+        <!--/* book 표출 영역*/-->
+        <div class="show-guide__ebook-container" id="ebookContainer"></div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/attend/show-guide.js" defer></script>
+</section>
+</html>

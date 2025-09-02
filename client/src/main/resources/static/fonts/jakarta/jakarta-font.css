@@ -1,0 +1,164 @@
+/* jakartaBase normal 300 ~ 700 */
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* jakartaBase italic 300 ~ 700 */
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JakartaBase";
+  src: url("jakarta-base.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* OnehungaSans normal 300 ~ 700 */
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* OnehungaSans italic 300 ~ 700 */
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OnehungaSans";
+  src: url("OnehungaSans-Regular.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

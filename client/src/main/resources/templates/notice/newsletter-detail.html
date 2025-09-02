@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* newsletter 상세 */-->
+  <section class="component position-relative">
+    <div class="component__div">
+      <div class="d-none" id="newsletterDetail" th:attr="data-id=${id}"></div>
+      <!--/* 제목 */-->
+      <h1 class="component__title-font--big fw-semibold" id="title"></h1>
+      
+      <!--/* 내용 */-->
+      <div class="w-100" id="content"></div>
+      
+      <!--/* 로딩바 */-->
+      <div class="js-evt__loading text-center js-evt__loading d-none">
+        <div class="spinner-border text-primary-600" role="status"></div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/* 버튼 */-->
+  <section class="component">
+    <div class="component__div align-items-md-center">
+      <a href="" class="component__button--primary-one component__button--primary-dark" id="refererButton"></a>
+    </div>
+  </section>
+  
+  <script src="/static/js/notice/newsletter-detail.js" defer></script>
+</section>
+</html>

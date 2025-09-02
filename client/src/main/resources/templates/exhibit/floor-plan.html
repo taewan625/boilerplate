@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/*pdf component*/-->
+  <section class="component">
+    <div class="component__div">
+      <h1 class="component__title-font--big">WORLD OF COFFEE JAKARTA FLOOR PLAN</h1>
+      
+      <div class="d-flex flex-column-reverse flex-md-column gap-4">
+        
+        <!--/*link 버튼 영역*/-->
+        <a download href="#" class="component__button--primary-one component__button--primary-inherit gap-2" id="floorPlanDownload">
+          <span>DOWNLOAD FLOOR PLAN</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 14.2003L22 20.3242C22 20.477 21.9042 20.6001 21.7851 20.6001H2.21484C2.09582 20.6001 2 20.477 2 20.3242V14.2003M12 3.17822L12 17.1782M12 17.1782L6.74117 11.8054M12 17.1782L17.2588 11.8054" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        
+        <!--/*map 영역*/-->
+        <div class="position-relative">
+          <!--/*로딩 gif*/-->
+          <div class="component__wrap-loading d-none js-evt__loading">
+            <div class="spinner-border text-primary-600" role="status"></div>
+          </div>
+          <!--/*pdf zoom button*/-->
+          <div class="floor-plan__canvas-button">
+            <button class="component__button--primary-two component__button--primary-dark" id="zoomInBtn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.3416 10.1619H13.9716M10.1616 6.34185V13.9718M21.6471 21.6236L15.5708 15.5473M17.7966 10.1568C17.7966 14.3763 14.3761 17.7968 10.1566 17.7968C5.93715 17.7968 2.5166 14.3763 2.5166 10.1568C2.5166 5.93739 5.93715 2.51685 10.1566 2.51685C14.3761 2.51685 17.7966 5.93739 17.7966 10.1568Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="component__button--primary-two component__button--primary-dark" id="zoomOutBtn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.3416 10.1568C9.3213 10.1568 13.9716 10.1568 13.9716 10.1568M21.6486 21.6221L15.5723 15.5457M17.7966 10.1568C17.7966 14.3763 14.3761 17.7968 10.1566 17.7968C5.93715 17.7968 2.5166 14.3763 2.5166 10.1568C2.5166 5.93739 5.93715 2.51685 10.1566 2.51685C14.3761 2.51685 17.7966 5.93739 17.7966 10.1568Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <!--/*pdf 표출 영역*/-->
+          <div id="canvasWrapper" class="floor-plan__canvas-wrapper">
+            <canvas id="floorPlanCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/static/js/exhibit/floor-plan.js" defer></script>
+</section>
+</html>

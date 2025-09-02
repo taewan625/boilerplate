@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block  th:fragment="head-fragment">
+    <head>
+        <meta charset="utf-8">
+        <!--/*반응형 웹을 위한 뷰포트 설정 (모바일 대응)*/-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+        <!--/*검색엔진 및 SNS 미리보기용 페이지 설명 (SEO)*/-->
+        <meta name="description" content="World of Coffee Bangkok 2026 | May 7 - 9, 2026 BITEC, Bangkok, Thailand | No.1 Specialty Coffee Trade Show in Bangkok!">
+        
+        <meta name="author" content="World of Coffee Asia">
+        <link rel="author" href="https://asia.worldofcoffee.org/">
+        
+        <!--/*서치콘솔 소유권 인증*/-->
+        <meta name="google-site-verification" content="oyxatQH3bdxgjmWqWCmmwxNrpGUGDNtlvsE0R4aaplg">
+        <meta name="naver-site-verification" content="ee82f99e60f5b3f745420f451ca48ab6c75a7864">
+        
+        <!--/* Open Graph: SNS 공유시 정보 */-->
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="World of Coffee Asia">
+        <meta property="og:description" content="World of Coffee Bangkok 2026 | May 7 - 9, 2026 BITEC, Bangkok, Thailand | No.1 Specialty Coffee Trade Show in Bangkok!">
+        <meta property="og:url" content="https://asia.worldofcoffee.org">
+        <meta property="og:site_name" content="World of Coffee Asia">
+        <meta property="og:image" content="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/head/open-graph.webp">
+        <meta property="og:type" content="website">
+        
+        <!--/* 다국어 예시
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:title" content="월드 오브 커피 방콕 2026" />
+        <meta property="og:description" content="2026년 5월 7-9일, 방콕 BITEC에서 열리는 No.1 스페셜티 커피 박람회" />
+        ...
+        */-->
+        
+        <!--/* 트위터 공유시 정보 */-->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="World of Coffee Asia">
+        <meta name="twitter:description" content="World of Coffee Bangkok 2026 | May 7 - 9, 2026 BITEC, Bangkok, Thailand | No.1 Specialty Coffee Trade Show in Bangkok!">
+        <meta name="twitter:image" content="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/head/open-graph.webp">
+        <!--/*<meta name="twitter:site" content="@yourtwitterhandle" />*/-->
+
+        <!--/* csrf 토큰 */-->
+        <meta name="_csrf" th:content="${_csrf.token}" />
+        <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+        <meta name="_csrf_parameter" th:content="${_csrf.parameterName}" />
+
+        <!--/* iOS 홈화면 아이콘 */-->
+        <link rel="apple-touch-icon" href="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/head/logo-apple.png">
+        <!--/* 외부 리소스 서버와의 연결을 미리 준비 (성능 최적화) */-->
+        <link rel="preconnect" href="https://kr.object.ncloudstorage.com">
+        
+        <!--/* 중복 URL 방지 및 대표 URL 명시 */-->
+        <link rel="canonical" href="https://asia.worldofcoffee.org/" />
+        <!--/* 검색엔진 크롤링 정책 명시 */-->
+        <meta name="robots" content="index, follow" />
+
+        <!--/* currentMenus가 비어 있지 않은 경우 */-->
+        <title th:unless="${#lists.isEmpty(currentMenus)}" th:text="${'World of Coffee - ' + currentMenus[currentMenus.size() - 1].name}"></title>
+        <!--/* currentMenus가 비어 있는 경우 */-->
+        <title th:if="${#lists.isEmpty(currentMenus)}" th:text="'World of Coffee'"></title>
+
+        <!--/* Favicon */-->
+        <link rel="icon" type="image/x-icon" href="/static/img/favicon/favicon.ico" />
+
+        <!--/* Fonts */-->
+        <link rel="stylesheet" href="/static/fonts/jakarta/jakarta-font.css"/>
+
+        <!--/* Vendors CSS */-->
+        <link rel="stylesheet" href="/static/vendor/libs/bootstrap/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/vendor/libs/swiper/swiper-bundle.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/vendor/libs/select2/css/select2.min.css" type="text/css"/>
+        
+        <!--/* Custom CSS */-->
+        <link rel="stylesheet" href="/static/css/custom-bootstrap.css"/>
+        <link rel="stylesheet" href="/static/css/custom-select2.css"/>
+        <!--/* Core CSS */-->
+        <link rel="stylesheet" href="/static/css/core.css"/>
+        <link rel="stylesheet" href="/static/css/woc-pages.css"/>
+    </head>
+</th:block>
+</html>

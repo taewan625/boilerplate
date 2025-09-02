@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/manual
+    username: root
+    password: ex2233!@
+
+logging:
+  level:
+    org.apache.ibatis: DEBUG
+    com.exporum: DEBUG
+
+ncp:
+  object-storage:
+    bucket: bucket-exporum-dev
+
+jwt:
+  cookie-domain: localhost
+  cookie-secure: false
+
+
+resource:
+  storage:
+    path:
+      upload: /Users/taewan/Downloads/temp
+      download: /Users/taewan/Downloads/temp
+      #download: classpath:/temp/download
+    url: ENC(dDQUnbh5WaJJydlUOSS+YEYkUdUNyozJXpj4Fq+Kqlf1Eh3yAnjaya2tf6u3AlqwpYmG8cXR6Fd8GDcaFG2zYQ==)
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

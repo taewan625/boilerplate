@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}">>
+
+<div layout:fragment="content-fragment" class="container-fluid flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">SUBSCRIBE</h4>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-8">
+                        <div class="mb-2 row">
+                            <label class="col-md-2 search-form-label">STATUS</label>
+                            <div class="col-md-10 d-flex align-items-center">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="A" >
+                                    <label class="form-check-label" for="status1">All</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="S" checked>
+                                    <label class="form-check-label" for="status2">Subscribe</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="status3" value="U">
+                                    <label class="form-check-label" for="status3">Unsubscribe</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="search-type" class="col-md-2 search-form-label">Keyword</label>
+                            <div class="col-3">
+                                <select id="search-type" class="form-select">
+                                    <option value="E" selected>Email</option>
+                                    <option value="N">Name</option>
+
+                                </select>
+                            </div>
+                            <div class="col-7 ps-1">
+                                <input type="text" class="form-control" value="" placeholder="Keyword" id="search-text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <div class="row align-items-end">
+                        <div class="col-auto">
+                            <button  class="btn btn-outline-primary" id="btn-search"><i class='bx bx-search' ></i> Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-1">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-secondary me-1" id="btn-excel"><i class='bx bx-download'></i> Excel Download</button>
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
+            <table id="datatable" class="table table-hover"></table>
+        </div>
+    </div>
+
+
+
+    <script src="/static/js/subscribe/subscribe.js" defer></script>
+</div>
+
+</html>

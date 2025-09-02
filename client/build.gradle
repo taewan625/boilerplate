@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'war'
+    id "org.gradlewebtools.minify" version "2.1.1"
+}
+
+group = 'com.exporum'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+// JS Minify
+task jsMinify(type: org.gradlewebtools.minify.JsMinifyTask) {
+    srcDir = file("src/main/resources/static/js")
+    dstDir = file("build/minified/js")
+    options.originalFileNames = true
+}
+
+// CSS Minify
+task cssMinify(type: org.gradlewebtools.minify.CssMinifyTask) {
+    srcDir = file("src/main/resources/static/css")
+    dstDir = file("build/minified/css")
+    options.originalFileNames = true
+}
+
+processResources {
+    //bootJar || bootWar 태스크가 실행시 원본 js, css 파일 제외. local에선 정상 동작
+    if (gradle.startParameter.taskNames.any { it.contains('bootJar') || it.contains('bootWar') }) {
+        exclude("**/static/css/**", "**/static/js/**")
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+
+tasks.withType(Test) {
+    jvmArgs += '--enable-preview'
+}
+
+tasks.named('bootWar') {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    dependsOn jsMinify, cssMinify
+    archiveBaseName.set('ROOT')  // 기본 이름
+    archiveVersion.set('')            // 버전 제거
+    archiveClassifier.set('')         // 분류 제거
+    from("build/minified") {
+        into("WEB-INF/classes/static")
+    }
+}
+
+tasks.named('bootJar') {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    dependsOn jsMinify, cssMinify
+    archiveBaseName.set('woc-bangkok')  //기본 이름
+    archiveVersion.set('')              //버전 제거
+    archiveClassifier.set('client-8050')//분류 추가
+    from("build/minified") {
+        into("BOOT-INF/classes/static")
+    }
+}
+
+//JavaExec 타입을 가지는 목록에 모두 적용
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += ['--enable-preview']
+}
+
+//JavaCompile 타입을 가지는 목록에 모두 적용
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['--enable-preview']
+}
+
+//Test 타입을 가지는 목록에 모두 적용
+//tasks.withType(Test).configureEach {
+//    jvmArgs += '--enable-preview'
+//}
+
+//SpringBoot 특정 tasks를 지정하여 동작
+bootRun {
+    jvmArgs += '--enable-preview'
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* 카드 */-->
+  <section class="component">
+    <div class="component__div">
+        <!--/* newsletter card */-->
+        <div class="position-relative text-center">
+          <picture>
+            <!--/* 웹 (768px 이상) */-->
+            <source srcset="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05.webp" media="(min-width: 768px)">
+            <!--/* 모바일 (기본) */-->
+            <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05-m.webp" class="w-100" alt="..." height="230" draggable="false" loading="lazy">
+          </picture>
+          
+          <!--/* 흰색 오버레이 */-->
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-white-opacity-40"></div>
+          
+          <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center w-100 gap-5">
+            <div>
+              <h3 class="component__title-font--small fw-bold mb-4">On-site registration is available during the event</h3>
+              <h4 class="component__desc-font--big fw-semibold text-gray-700 m-0">Online registration is now closed.</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  
+  <!--/* 테이블 */-->
+  <section class="component">
+    <div class="component__div">
+      <h1 class="component__title-font--big">BADGE OPTIONS</h1>
+      
+      <!--/* 스크롤용 wrapper */-->
+      <div class="table-responsive">
+        <table class="table text-center align-middle text-truncate">
+          <thead class="table-light">
+          <tr>
+            <td class="py-3" rowspan="2">Type</td>
+            <td class="py-3" rowspan="2">Registration / Purchase Period</td>
+            <td class="py-3" rowspan="2">Purchase Channel</td>
+            <td class="py-3" colspan="2">Pricing</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td rowspan="2">Early bird</td>
+            <td rowspan="2">Feb 3 ~ Apr 27</td>
+            <td rowspan="2">Online purchase</td>
+            <td>1-day</td>
+            <td>USD 10</td>
+          </tr>
+          <tr>
+            <td>3-days</td>
+            <td>USD 20</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Regular</td>
+            <td rowspan="2">Apr 28 ~ May 11</td>
+            <td rowspan="2">Online purchase</td>
+            <td>1-day</td>
+            <td>USD 15</td>
+          </tr>
+          <tr>
+            <td>3-days</td>
+            <td>USD 30</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Regular</td>
+            <td rowspan="2">May 15 ~ 17</td>
+            <td rowspan="2">On-site registration desk</td>
+            <td>1-day</td>
+            <td>USD 15</td>
+          </tr>
+          <tr>
+            <td>3-days</td>
+            <td>USD 30</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!--/* 문구 */-->
+      <ul class="visitor__ul fw-medium">
+        <li>
+          All sales are final and non-refundable<br>
+        </li>
+        <li>
+          Ticket purchase is limited to one per person under TICKET PURCHASE(CARD).<br>
+          However, in TICKET PURCHASE(QRIS) and on-site, a single person can purchase multiple tickets.
+        </li>
+        <li>
+          Registrants 12 – 16 must have a guardian register on their behalf
+        </li>
+        <li>
+          Badge includes access to the following from Thursday, May 15 – Saturday, May 17
+          <ul class="visitor__ul-inside fw-normal">
+            <li>Exhibit Hall, Roaster village, Producer Village</li>
+            <li>World Brewers Cup</li>
+            <li>SCA Lecture Series</li>
+            <li>Public cuppings in the Cupping Rooms</li>
+            <li>Opening ceremony</li>
+          </ul>
+        </li>
+        <li>
+          Payment-related precautions
+          <ul class="visitor__ul-inside fw-normal">
+            <li>To proceed with the payment successfully, please ensure that your pop-up blocker is disabled. We recommend usingChrome instead of Safari, and after disabling the pop-up blocker, please attempt the payment again.</li>
+          </ul>
+        </li>
+        <li>
+          TICKET PURCHASE(INDONESIA), payment is available through methods other than credit cards.
+        </li>
+      </ul>
+      
+      <!--/* 버튼 */-->
+      <div class="d-flex flex-column flex-md-row justify-content-center gap-3 pt-3">
+        <button type="button" class="component__button--primary-one component__button--primary-inherit gap-2 component__button--disabled" id="cardPurchase" disabled>
+          <span>TICKET PURCHASE(CARD)</span>
+        </button>
+        <!-- /*
+        <button type="button" class="component__button&#45;&#45;primary-one component__button&#45;&#45;primary-inherit gap-2 component__button&#45;&#45;disabled" id="qrPurchase" disabled>
+          <span>TICKET PURCHASE(QRIS)</span>
+        </button>
+        */ -->
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/attend/visitor.js" defer></script>
+</section>
+</html>

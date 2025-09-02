@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html 	lang="ko"
+         xmlns:th="http://www.thymeleaf.org"
+         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<th:block th:replace="~{layout/head :: head-fragment}"></th:block>
+
+
+<body>
+<th:block th:replace="~{layout/javascript :: js-fragment}"></th:block>
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+
+        <th:block th:replace="~{layout/menu :: menu-fragment}"></th:block>
+
+        <div class="layout-page">
+
+            <th:block th:replace="~{layout/header :: header-fragment}"></th:block>
+
+            <div class="content-wrapper">
+
+                <div layout:fragment="content-fragment"></div>
+
+                <th:block th:replace="~{layout/footer :: footer-fragment}"></th:block>
+
+                <div class="content-backdrop fade"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="wrap-loading d-none">
+        <div><img src="/static/img/load/loading.gif" alt ="loading"/></div>
+    </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="footer-fragment" >
+    <!--/* 1.footer */-->
+    <footer class="component py-4 bg-gray-100 border-top">
+        <!--/* 전체 div */-->
+        <div class="component__div">
+            <!--/* 로고 & 버튼 영역 */-->
+            <div class="d-flex align-items-center justify-content-between flex-column flex-md-row">
+                <a href="/" class="mb-3 mb-md-0">
+                    <img src="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/logo/bangkok-horizontal.webp" class="component__logo-img-size" alt="logo" draggable="false" loading="lazy" decoding="async"/>
+                </a>
+                <a href="/newsletter/subscribe" class="component__button--primary-one component__button--primary-inherit">
+                    <div>SUBSCRIBE TO NEWSLETTER</div>
+                </a>
+            </div>
+
+            <!--/* 소셜 svg 및 회사 정보 영역 */-->
+            <div class="d-flex align-items-center align-items-md-end justify-content-between flex-column flex-md-row gap-3">
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex justify-content-center justify-content-md-start align-items-center">
+                        <a target="_blank" href="https://www.instagram.com/worldofcoffeeasia/" class="component__social-icon" title="instagram">
+                            <img src="/static/img/icons/instagram.svg" alt="instagram" width="25" height="25" draggable="false" loading="lazy" decoding="async"/>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/WorldofCoffeeAsia" class="component__social-icon" title="facebook">
+                            <img src="/static/img/icons/facebook.svg" alt="facebook" width="25" height="25" draggable="false" loading="lazy" decoding="async"/>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@WorldofCoffeeAsia" class="component__social-icon" title="youtube">
+                            <img src="/static/img/icons/youtube.svg" alt="youtube" width="25" height="25" draggable="false" loading="lazy" decoding="async"/>
+                        </a>
+                    </div>
+                    <div class="d-flex flex-column gap-1 fs-12px text-gray-600">
+                        <div class="text-center text-md-start">
+                            <span>CEO</span>
+                            <span class="mx-2">|</span>
+                            <span>Danny Hyundae Shin</span>
+                        </div>
+                        <div class="text-center text-md-start">
+                            <span>Business registration</span>
+                            <span class="mx-2">|</span>
+                            <span>120-86-50341</span>
+                        </div>
+                        <div class="text-center text-md-start">
+                            <span>ADDR</span>
+                            <span class="mx-2">|</span>
+                            <span class="mw-300px mw-md-none">Baekje Gobun-ro 9-gil 5, Songpa-gu, Seoul, Republic of Korea(05561)</span>
+                        </div>
+                        <div class="text-center text-md-start">
+                            <span>TEL</span>
+                            <span class="mx-2">|</span>
+                            <a href="tel:+82 2-6000-6698" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-color-inherit"> +82 2-6000-6698 </a>
+                        </div>
+                        <div class="text-center text-md-start">
+                            <span>E-mail</span>
+                            <span class="mx-2">|</span>
+                            <a href="mailto:info@worldofcoffee.asia" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-color-inherit"> info@worldofcoffee.asia </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex gap-3">
+                    <a target="_blank" href="https://sca.coffee/" class="w-80px h-50px"><img src="/static/img/temp/sca.webp" class="object-fit-contain w-100 h-100" alt="..." draggable="false" loading="lazy" decoding="async"/></a>
+                    <a target="_blank" href="https://exporum.com/" class="w-80px h-50px"><img src="https://kr.object.ncloudstorage.com/bucket-exporum-prod/woc/resource/bangkok/logo/exporum-small.webp" class="object-fit-contain w-100 h-100" alt="exporum" draggable="false" loading="lazy" decoding="async"/></a>
+                    <a target="_blank" href="https://scai.or.id/" class="w-80px h-50px"><img src="/static/img/temp/sc.webp" class="object-fit-contain w-100 h-100" alt="..." draggable="false" loading="lazy" decoding="async"/></a>
+                </div>
+            </div>
+
+            <!--/* 저작권 */-->
+            <div class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-between fs-12px text-gray-500 gap-1">
+                <div class="text-center text-md-start">
+                    <span>Copyright © EXPORUM Inc.</span>
+                    <div class="d-md-inline d-none">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+                    <br class="d-md-none" />
+                    <span>asia.worldofcoffee.org All Rights Reserved.</span>
+                </div>
+
+                <div>
+                    <span class="cursor-pointer js-evt__policyModal" data-name="terms">Terms & Condition</span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class="cursor-pointer js-evt__policyModal" data-name="privacy">Privacy & Protection Policy</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--/* top & quick btn */-->
+    <section>
+        <!--/* top button */-->
+        <div class="footer__floating-btn bg-white" id="topButton">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 19.5V4.5M12 4.5L6 10.125M12 4.5L18 10.125" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <!--/* quick button */-->
+        <div class="footer__floating-btn bg-primary-600 footer__quick-btn" id="quickBtn">
+            <a href="/exhibitor-inquiry" class="footer__floating-link" id="quickPath">
+                <span class="footer__floating-label">BOOK YOUR BOOTH</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+                    <path d="m21.854 2.147-10.94 10.939"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+    <!--/* modal */-->
+    <div class="modal fade" id="footerModal" tabindex="-1" aria-labelledby="footerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="footerModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body white-space-pre-wrap" id="footerModalContent"></div>
+                <div class="modal-footer">
+                    <button type="button" class="component__button--primary-one gap-2 component__button--primary-inherit" data-bs-dismiss="modal"><span>Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/layout/footer.js" defer></script>
+</th:block>
+
+</html>

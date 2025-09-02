@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/* 슬라이드 이미지*/-->
+  <section class="component">
+    <div class="component__div">
+      <!--/*슬라이드 이미지 : 다건인 경우 template*/-->
+      <section>
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+          <!--/*하단 버튼*/-->
+          <div class="carousel-indicators"></div>
+          <!--/*이미지 영역*/-->
+          <div class="carousel-inner"></div>
+          
+          <!--/*좌우 버튼*/-->
+        </div>
+      </section>
+      
+      <span class="component__desc-font--middle">Stationed right next to the WBrC Stage, the Brew Bar is a dedicated space where attendees can enjoy expertly crafted coffees, brewed by our amazing WCC Champions using top-quality beans and a wide range of brewing methods. Whether you need a quick caffeine boost or want to explore unique flavors, this is the perfect spot to refuel and recharge during this energy-filled event!</span>
+    </div>
+  </section>
+  
+  <!--/*일정 정보*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="d-flex flex-column gap-2">
+        <h2 class="component__title-font--middle">Brew Bars Overview</h2>
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.75 2.62488V6.37488M8.25 2.62488V6.37488M3.5625 10.1249H20.4375M5.4375 4.49988H18.5625C19.598 4.49988 20.4375 5.33934 20.4375 6.37488V19.4999C20.4375 20.5354 19.598 21.3749 18.5625 21.3749H5.4375C4.40197 21.3749 3.5625 20.5354 3.5625 19.4999V6.37488C3.5625 5.33934 4.40197 4.49988 5.4375 4.49988Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">May 15, 2025 (Thu) - May 17, 2025 (Sat)</p>
+        </div>
+        
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.3332 9.33333C19.3332 5.28333 16.0498 2 11.9998 2C7.94984 2 4.6665 5.28333 4.6665 9.33333C4.6665 14.6667 11.9998 22 11.9998 22C11.9998 22 19.3332 14.6667 19.3332 9.33333Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+            <path d="M11.9998 12C13.4725 12 14.6664 10.8061 14.6664 9.33333C14.6664 7.86057 13.4725 6.66667 11.9998 6.66667C10.527 6.66667 9.33309 7.86057 9.33309 9.33333C9.33309 10.8061 10.527 12 11.9998 12Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linejoin="round"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">Plenary Hall PL401 Brew Bars</p>
+        </div>
+        
+        <div class="d-flex align-items-start gap-2">
+          <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <p class="component__desc-font--middle fw-medium mb-0">Anyone with a badge on the day of World of Coffee Jakarta can participate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--/*newsletter card*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="position-relative text-center">
+        <picture>
+          <!--/*웹 (768px 이상)*/-->
+          <source srcset="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05.webp" media="(min-width: 768px)">
+          <!--/*모바일 (기본)*/-->
+          <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/contact-box/bg-05-m.webp" class="w-100" alt="..." height="300" draggable="false" loading="lazy">
+        </picture>
+        
+        <!--/*흰색 오버레이*/-->
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-white-opacity-40"></div>
+        
+        <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center w-100 gap-5">
+          <div>
+            <h3 class="component__desc-font--big fw-bold mb-4">Stay updated with World of Coffee Jakarta Newsletter!</h3>
+            <p class="component__desc-font--middle m-0">Detailed schedule for each program will be noticed later.</p>
+            <p class="component__desc-font--middle m-0">Stay updated with World of Coffee Asia Newsletter!</p>
+          </div>
+          
+          <a href="/newsletter/subscribe" class="component__button--primary-one component__button--primary-dark gap-2">
+            <span>GET UPDATES</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/show-features/brew-bars.js" defer></script>
+</section>
+</html>

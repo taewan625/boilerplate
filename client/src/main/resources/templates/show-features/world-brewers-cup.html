@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}"
+>
+
+<section layout:fragment="content-fragment">
+  <!--/*슬라이드 이미지*/-->
+  <section class="component">
+    <div class="component__div">
+      <!--/* 슬라이드 이미지 : 다건인 경우 template*/-->
+      <section>
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+          <!--/* 하단 버튼*/-->
+          <div class="carousel-indicators"></div>
+          <!--/* 이미지 영역*/-->
+          <div class="carousel-inner"></div>
+          
+          <!--/* 좌우 버튼*/-->
+        </div>
+      </section>
+      
+      <span class="component__desc-font--middle">Competitors from around the globe will gather for the second World Coffee Championship of 2025, happening May 15-17 at the Jakarta World Coffee Championships (WCC), staged at World of Coffee Jakarta. The event includes the 2025 World Brewers Cup.</span>
+    </div>
+  </section>
+  
+  <!--/* 내용*/-->
+  <section class="component">
+    <div class="component__div">
+      <div class="d-flex flex-column flex-md-row gap-4">
+        <img src="https://kr.object.ncloudstorage.com/bucket-exporum-dev/woc/test-for-jakarta/logo/WCC_JAKARTA_color.webp" alt="..." class="img-fluid object-fit-contain border mw-md-500px p-4" draggable="false" loading="lazy" decoding="async"/>
+        <div class="d-flex flex-column justify-content-between gap-4">
+          <h2 class="fw-semibold">The World Brewers Cup is an international coffee brewing competition designed to showcase the craft and skill of manual filter coffee brewing.</h2>
+          <p class="component__desc-font--middle">Don’t miss the moment of the new World Brewers Cup Champion!</p>
+          <a target="_blank" href="https://wcc.coffee/2025-jakarta-wcc" class="component__button--primary-one component__button--primary-inherit gap-2">
+            <span>DISCOVER MORE</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.996 5.00348L5.00293 18.9965M18.996 5.00348H6.40228M18.996 5.00348L18.996 17.5972" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="/static/js/show-features/world-brewers-cup.js" defer></script>
+</section>
+</html>
