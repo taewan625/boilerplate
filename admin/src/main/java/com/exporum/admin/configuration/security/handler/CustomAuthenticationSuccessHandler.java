@@ -1,6 +1,6 @@
 package com.exporum.admin.configuration.security.handler;
 
-import com.exporum.admin.auth.model.AuthUser;
+import com.exporum.admin.authentication.model.AuthUser;
 import com.exporum.admin.common.model.ExhibitionSelectOption;
 import com.exporum.admin.common.service.CommonService;
 import jakarta.servlet.ServletException;
@@ -38,16 +38,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-
         String remember = request.getParameter("remember");
         AuthUser authUser = (AuthUser) authentication.getPrincipal();
         setCookie(response, remember, authUser.getUsername());
 
-        List<ExhibitionSelectOption> exhibitionSelectOptions = commonService.getExhibitionSelectOption();
-
         request.getSession().setAttribute("role", authUser.getRoleName());
         request.getSession().setAttribute("adminName", authUser.getName());
-        request.getSession().setAttribute("exhibitions", exhibitionSelectOptions);
         request.getSession().setAttribute("initialPassword", authUser.isInitialPassword());
 
         log.info("onAuthenticationSuccess :  로그인 성공");

@@ -24,20 +24,12 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
-
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
-    private final MessageHelper messageHelper;
-
-    private final ObjectMapper objectMapper;
-
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, org.springframework.security.core.AuthenticationException exception) throws IOException, ServletException {
-
         log.info("onAuthenticationFailure :  로그인 실패 () =>  {}", exception.getMessage());
 
         redirectStrategy.sendRedirect(request, response, "/login?error=unauthorized");
     }
-
 }

@@ -1,6 +1,5 @@
 package com.exporum.core.domain.ticket.service;
 
-import com.exporum.core.domain.payment.model.PaymentRequest;
 import com.exporum.core.domain.question.service.QuestionService;
 import com.exporum.core.domain.storage.model.FileDTO;
 import com.exporum.core.domain.storage.service.StorageService;
