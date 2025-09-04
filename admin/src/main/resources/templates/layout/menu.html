@@ -58,6 +58,30 @@
             <div data-i18n="subscribe">SUBSCRIBE</div>
         </a>
     </li>
+    
+    <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/setting')} >= 0 ? 'active open' : ''">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-clipboard"></i>
+        <div data-i18n="board">환경설정</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/system/common-code')} >= 0 ? 'active' : ''">
+          <a href="/board/notice" class="menu-link">
+            <div data-i18n="notice">공통코드 관리</div>
+          </a>
+        </li>
+        <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/setting/menu')} >= 0 ? 'active' : ''">
+          <a href="/board/notice" class="menu-link">
+            <div data-i18n="notice">메뉴 관리</div>
+          </a>
+        </li>
+        <li class="menu-item" th:classappend="${#strings.indexOf(currentUrl,'/setting/exhibit-code')} >= 0 ? 'active' : ''">
+          <a href="/board/newsletter" class="menu-link">
+            <div data-i18n="press">전시 코드 관리</div>
+          </a>
+        </li>
+      </ul>
+    </li>
 
     </ul>
 

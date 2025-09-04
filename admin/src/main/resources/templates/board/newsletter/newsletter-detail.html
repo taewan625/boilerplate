@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="~{layout/default}">>
+
+<div layout:fragment="content-fragment" class="container-fluid flex-grow-1 container-p-y">
+    <style>
+        img{
+            max-width: 100%;
+        }
+    </style>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">BOARD / NEWSLETTER /</span> DETAILS</h4>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card">
+                <h4 class="card-header" id="title"></h4>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div id="content" class="input-bottom-line"></div>
+                    </div>
+                    
+                    <div id="div-attached" class="row input-bottom-line mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="logoAttached">LOGO IMAGE</label>
+                                <div id="logoAttached"></div>
+                                <input type="hidden" id="logoUuid">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="logoPreview">LOGO PREVIEW</label>
+                                        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                            <div style="width: 323px; height: 224px;">
+                                                <img id="logoPreview" onerror="this.src='/static/img/backgrounds/noimage.png'"
+                                                     class="border w-100 h-100"
+                                                     style="object-fit: contain;"
+                                                     draggable="false"
+                                                     alt="image"
+                                                     loading="lazy"
+                                                     decoding="async"
+                                                     src=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <label class="form-label" for="issueDate">ISSUE DATE</label>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control-plaintext" id="issueDate" readonly disabled>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-5">
+                            <label class="form-label" for="createdBy">created</label>
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="text" class="form-control-plaintext" id="createdBy" readonly disabled>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" class="form-control-plaintext" id="createdAt" readonly disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-5">
+                            <label class="form-label" for="updatedBy">updated</label>
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="text" class="form-control-plaintext" id="updatedBy" readonly disabled>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" class="form-control-plaintext" id="updatedAt" readonly disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-secondary me-1" id="btn-pre"><i class='bx bx-arrow-back'></i> List</button>
+                </div>
+
+                <div class="col-6">
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            <button class="btn btn-danger ms-1" id="btn-delete"><i class='bx bx-trash' ></i> Delete</button>
+                            <button class="btn btn-secondary ms-1" id="btn-disable"><i class='bx bx-loader-circle'></i> Unpublish</button>
+                            <button class="btn btn-success ms-1" id="btn-enable"><i class='bx bx-check'></i> Publish</button>
+                            <button class="btn btn-primary ms-1" id="btn-update"><i class='bx bx-edit' ></i> Modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/board/newsletter/newsletter-detail.js" defer></script>
+</div>
+
+</html>
