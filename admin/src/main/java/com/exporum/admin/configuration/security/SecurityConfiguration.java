@@ -44,9 +44,7 @@ public class SecurityConfiguration {
         //접근 유무 설정
         http.authorizeHttpRequests(request -> request
                 //1.permit 유형
-                .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/static/**")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/login/**")).permitAll()
+                .requestMatchers("/static/**", "/login/**").permitAll()
                 .requestMatchers(
                         new AntPathRequestMatcher("/api-doc/**"),
                         new AntPathRequestMatcher("/swagger-ui.html"),
