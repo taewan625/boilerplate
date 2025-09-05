@@ -7,9 +7,10 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
+import java.util.List;
 
 /**
  * AuthenticationService.java
@@ -42,7 +43,7 @@ public class AuthenticationService implements AuthenticationProvider {
 
         //인증 성공 token 객체 SecurityContext에 저장
         //todo. 3rd params의 권한 부분은 파악 후 추가 여부 판단
-        return new UsernamePasswordAuthenticationToken(user, user.getPassword(), Collections.emptyList());
+        return new UsernamePasswordAuthenticationToken(user, user.getPassword(),  List.of(new SimpleGrantedAuthority("ROLE_USER")));
     }
 
     //provider가 처리할 수 있는 Authentication 타입 지정
