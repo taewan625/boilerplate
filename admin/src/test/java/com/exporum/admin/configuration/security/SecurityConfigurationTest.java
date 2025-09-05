@@ -3,8 +3,6 @@ package com.exporum.admin.configuration.security;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SecurityConfigurationTest {
 
     @Test

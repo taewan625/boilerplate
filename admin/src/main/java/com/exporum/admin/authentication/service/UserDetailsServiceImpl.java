@@ -31,8 +31,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return null;
     }
 
-    public AuthUser authenticateLoginInfo(String username, String password) throws UsernameNotFoundException {
-        AuthUser user = Optional.ofNullable(authMapper.getUser(username)).orElseThrow(() -> new UsernameNotFoundException("회원을 찾을 수 없습니다."));
+    public AuthUser authenticateLoginInfo(String id, String password) throws UsernameNotFoundException {
+        AuthUser user = Optional.ofNullable(authMapper.getUser(id)).orElseThrow(() -> new UsernameNotFoundException("회원을 찾을 수 없습니다."));
 
         if (passwordEncoder.matches(password, user.getPassword())) {
             return user;

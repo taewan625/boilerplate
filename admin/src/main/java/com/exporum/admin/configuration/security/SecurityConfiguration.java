@@ -67,8 +67,8 @@ public class SecurityConfiguration {
         http.formLogin(login -> login
                 .loginPage("/login")         //login form url
                 .loginProcessingUrl("/login")  //login 요청 처리 url
-                .usernameParameter("username") //id
-                .passwordParameter("password") //pw
+                .usernameParameter("id")
+                .passwordParameter("password")
                 .successHandler(customAuthenticationSuccessHandler) //실제 인증 작업 성공 후처리
                 .failureHandler(customAuthenticationFailureHandler) //실제 인증 작업 실패 후처리
                 .permitAll()

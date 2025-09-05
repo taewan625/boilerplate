@@ -19,7 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 public class AuthUser implements UserDetails {
-    private long id;
+    private String id;
     private String role;
     private String roleName;
     private String department;

@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface AuthMapper {
-    AuthUser getUser(String username);
+    AuthUser getUser(String id);
 }

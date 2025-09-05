@@ -5,15 +5,13 @@
     <select id="getUser" parameterType="String" resultType="com.exporum.admin.authentication.model.AuthUser">
         <![CDATA[
             select
-                a.id,
-                a.email,
-                a.password,
-                a.username AS name,
-                a.phone_number AS mobile_number
-            from admin as a
+                u.id,
+                u.email,
+                u.password
+            from user as u
             where 1=1
-            and a.username = #{username}
-            and a.is_deleted = 0
+            and u.id = #{id}
+            and u.is_delete = 0
         ]]>
     </select>
 </mapper>
