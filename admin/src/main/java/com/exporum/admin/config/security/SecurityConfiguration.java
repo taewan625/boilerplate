@@ -59,8 +59,7 @@ public class SecurityConfiguration {
                 .anyRequest().authenticated()
         );
 
-        //인증 방법 - form 로그인
-        //실제 인증 flow: AuthenticationService → UserDetailServiceImpl
+        //인증 방법 설정 form 로그인     ps.인증 과정: AuthenticationService → UserDetailServiceImpl
         http.formLogin(login -> login
                 .loginPage("/login")         //login form url
                 .loginProcessingUrl("/login")  //login 요청 처리 url

@@ -43,7 +43,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         request.getSession().setAttribute("initialPassword", authUser.isInitialPassword());
 
         log.info("onAuthenticationSuccess :  로그인 성공");
-        redirectStrategy.sendRedirect(request, response, "/dashboard");
+        redirectStrategy.sendRedirect(request, response, "/");
     }
 
 

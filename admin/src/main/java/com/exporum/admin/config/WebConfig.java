@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @description : 웹 관련 설정을 중앙에서 관리하는 클래스.
  *              모든 Interceptor 등록, Formatter 등 관리
  */
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 

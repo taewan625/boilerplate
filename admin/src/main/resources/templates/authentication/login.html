@@ -1,18 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>login</title>
+  <title>로그인</title>
 </head>
 <body>
-<form action="/login" method="post">
-  <label>
-    <input type="text" name="id">
-  </label>
-  <label>
-    <input type="password" name="password">
-  </label>
-  <button type="submit">login</button>
+<h1>로그인</h1>
+<form id="loginForm">
+  <div>
+    <label for="id">아이디:</label>
+    <input type="text" id="id" name="id" required>
+  </div>
+  <div>
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <button type="submit">로그인</button>
 </form>
+<div id="error-message" style="color: red; margin-top: 10px;"></div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 폼의 기본 제출 동작을 막습니다.
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const searchParams = new URLSearchParams();
+    for (const pair of formData) {
+      searchParams.append(pair[0], pair[1]);
+    }
+
+    const errorMessageDiv = document.getElementById('error-message');
+    errorMessageDiv.textContent = ''; // 이전 오류 메시지 초기화
+
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: searchParams.toString(),
+    })
+    .then(response => {
+      if (response.ok) {
+        // 성공 핸들러에서 리디렉션을 처리하지 않는 경우,
+        // 클라이언트에서 리디렉션할 수 있습니다.
+        // 성공 시 메인 페이지로 이동합니다.
+        console.log('Login successful');
+        window.location.href = '/';
+      } else {
+        // 실패 핸들러가 401과 같은 오류 상태를 반환할 때 실행됩니다.
+        errorMessageDiv.textContent = '아이디 또는 비밀번호가 올바르지 않습니다.';
+      }
+    })
+    .catch(error => {
+      console.error('Login request error:', error);
+      errorMessageDiv.textContent = '로그인 중 오류가 발생했습니다.';
+    });
+  });
+</script>
+
 </body>
 </html>

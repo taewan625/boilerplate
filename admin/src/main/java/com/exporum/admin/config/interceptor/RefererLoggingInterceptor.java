@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -17,7 +16,7 @@ import java.util.Locale;
  * @date : 2025. 07. 18.
  * @description :
  */
-@Component
+//@Component
 @RequiredArgsConstructor
 @Slf4j
 public class RefererLoggingInterceptor implements HandlerInterceptor {
