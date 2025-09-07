@@ -33,12 +33,12 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public String handleNoHandlerFoundException() {
-        return "error/not-found-error";
+        return "errors/not-found-error";
     }
 
     @ExceptionHandler(Exception.class)
     public String handleException() {
-        return "error/runtime-error";
+        return "errors/runtime-error";
     }
 
     @ExceptionHandler(ThirdPartyApiException.class)

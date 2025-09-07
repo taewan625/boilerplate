@@ -39,23 +39,7 @@ public class GlobalErrorController implements ErrorController {
      */
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
-        Object exception = request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 
-        if (exception != null) {
-            Class<?> exceptionType = exception.getClass();
-
-            //Thymeleaf 파일 없음 예외 → 준비중 페이지
-            if (exceptionType.equals(org.thymeleaf.exceptions.TemplateInputException.class)) {
-                return "error/not-ready";
-            }
-
-            //모든 5xx 에러
-            if (Exception.class.isAssignableFrom(exceptionType)) {
-                return "error/runtime-error";
-            }
-        }
-
-        //모든 4xx 에러 및 url 직접 접근
-        return "error/not-found-error";
+        return "errors/not-ready";
     }
 }
