@@ -19,74 +19,26 @@ import java.util.List;
 @Getter
 @Setter
 public class AuthUser implements UserDetails {
-    private String id;
-    private String role;
-    private String roleName;
-    private String department;
-    private String email;
+    private long id;
+    private String username;
     private String password;
-    private String name;
-    private String mobileNumber;
-    private boolean initialPassword;
-    private boolean expiration;
-    private boolean blocked;
-    private String lastLoginAt;
+    private String email;
 
-
-
-    /**
-     * 계정이 가지고 있는 권한 목록
-     * @return null
-     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //Arrays.asList(new SimpleGrantedAuthority("ROLE_"+this.getUserType().getCode()))
-        //List.of(new SimpleGrantedAuthority("ROLE_" + this.getUserType().getCode()));
-        return List.of(new SimpleGrantedAuthority(role));
+        // 필요시 ROLE 추가
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    /**
-     * 사용자 아이디
-     * @return userId
-     */
     @Override
-    public String getUsername() {
-        return this.getEmail();
-    }
+    public boolean isAccountNonExpired() { return true; }
 
-    /**
-     * 계정 만료 여부 (false: 만료, true: 만료 안됨)
-     * @return boolean
-     */
     @Override
-    public boolean isAccountNonExpired() {
-        return !this.blocked;
-    }
+    public boolean isAccountNonLocked() { return true; }
 
-    /**
-     * 계정 잠김 여부 (false: 만료, true: 만료 안됨)
-     * @return boolean
-     */
     @Override
-    public boolean isAccountNonLocked() {
-        return !this.blocked;
-    }
+    public boolean isCredentialsNonExpired() { return true; }
 
-    /**
-     * 비밀번호 만료 여부 (false: 만료, true: 만료 안됨)
-     * @return
-     */
     @Override
-    public boolean isCredentialsNonExpired() {
-        return !this.expiration;
-    }
-
-    /**
-     * 계정 활성화 여부 (false: 비활성, true: 활성)
-     * @return
-     */
-    @Override
-    public boolean isEnabled() {
-        return !this.blocked;
-    }
+    public boolean isEnabled() { return true; }
 }

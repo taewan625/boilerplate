@@ -6,11 +6,12 @@
         <![CDATA[
             select
                 u.id,
-                u.email,
-                u.password
+                u.username,
+                u.password,
+                u.email
             from user as u
             where 1=1
-            and u.id = #{id}
+            and u.username = #{username}
             and u.is_delete = 0
         ]]>
     </select>

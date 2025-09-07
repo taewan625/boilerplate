@@ -27,39 +27,12 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    @Value("${jwt.cookie-domain}")
-    private String COOKIE_DOMAIN;
-
-    private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+    // private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy(); // 필요시 사용
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        String remember = request.getParameter("remember");
-        AuthUser authUser = (AuthUser) authentication.getPrincipal();
-        setCookie(response, remember, authUser.getUsername());
-
-        request.getSession().setAttribute("role", authUser.getRoleName());
-        request.getSession().setAttribute("adminName", authUser.getName());
-        request.getSession().setAttribute("initialPassword", authUser.isInitialPassword());
-
-        log.info("onAuthenticationSuccess :  로그인 성공");
-        redirectStrategy.sendRedirect(request, response, "/");
-    }
-
-
-    private void setCookie(HttpServletResponse response, String remember, String username) {
-        if(remember != null) {
-            log.debug("Remember authentication success");
-
-            Cookie cookie = new Cookie("username", username);
-            cookie.setDomain(COOKIE_DOMAIN);
-            cookie.setMaxAge(60 * 60 * 24 * 7);
-            response.addCookie(cookie);
-        }else{
-            Cookie cookie = new Cookie("username", "");
-            cookie.setDomain(COOKIE_DOMAIN);
-            response.addCookie(cookie);
-        }
-
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+        //TODO 1.JWT 발급 등은 필요 시 구현
+        //TODO 2.login 성공 로그
+        // redirect 생략 → Spring Security 기본 동작 적용
     }
 }
