@@ -2,8 +2,8 @@ package com.exporum.admin.config;
 
 import com.exporum.admin.config.interceptor.RefererLoggingInterceptor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -25,5 +25,12 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**") // 모든 경로에 적용하고
                 .excludePathPatterns("/api/**") // /api/** 경로는 제외합니다.
                 .excludePathPatterns("/static/**", "/css/**", "/js/**", "/images/**"); // 정적 리소스 경로도 제외합니다.
+    }
+
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
