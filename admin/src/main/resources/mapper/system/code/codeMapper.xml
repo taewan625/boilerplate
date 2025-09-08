@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exporum.admin.domain.v1.system.code.mapper.CodeMapper">
+
+
+    <!-- 공통 SQL fragment -->
+    <sql id="ParentCodeFragment">
+        <![CDATA[
+            SELECT a.code_id
+                    , a.parent_code_id
+                    , a.code_value
+                    , a.description
+                    , a.sort_order
+                    , a.depth
+                    , a.is_enable
+                    , a.is_delete
+                    , a.created_at
+                    , a.created_by
+                    , a.updated_at
+                    , a.updated_by
+            FROM common_code a
+            WHERE 1=1
+                AND is_delete = 0
+                AND parent_code_id IS NULL
+        ]]>
+        <if test="searchCondition != null and searchCondition != ''">
+            <![CDATA[ AND code_value LIKE CONCAT('%', #{searchCondition}, '%') ]]>
+        </if>
+    </sql>
+
+    <!-- 리스트 조회 -->
+    <select id="selectParentCodeList" parameterType="com.exporum.admin.core.pagination.SearchRequest" resultType="com.exporum.admin.domain.v1.system.code.model.CodeDetail">
+        SELECT z.*
+        FROM (
+            <include refid="ParentCodeFragment"/>
+        ) z
+        ORDER BY z.sort_order ASC
+        LIMIT #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!-- 카운트 조회 -->
+    <select id="selectParentCodeListCount" parameterType="com.exporum.admin.core.pagination.SearchRequest" resultType="long">
+        SELECT COUNT(*)
+        FROM (
+            <include refid="ParentCodeFragment"/>
+        ) z
+    </select>
+
+
+</mapper>

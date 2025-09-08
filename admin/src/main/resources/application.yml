@@ -11,4 +11,4 @@ server:
   servlet:
     context-path: /
     session:
-      timeout: 30m
+      timeout: 30m #로그인 세션 유지 시간 (마지막 동작 기점)

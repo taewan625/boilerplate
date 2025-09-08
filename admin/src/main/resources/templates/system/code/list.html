@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Common Code 관리</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Master Code -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Master Code</h5>
+          <div class="input-group input-group-sm w-50">
+            <input type="text" class="form-control" placeholder="검색..." id="masterSearch">
+            <button class="btn btn-outline-secondary" onclick="loadMasterCodes()">조회</button>
+            <button class="btn btn-success">등록</button>
+            <button class="btn btn-primary">수정</button>
+            <button class="btn btn-danger">삭제</button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-hover mb-0" id="masterTable">
+            <thead class="table-light">
+            <tr>
+              <th>코드</th>
+              <th>명칭</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- fetch API로 데이터 채움 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sub Code -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Sub Code</h5>
+          <div class="input-group input-group-sm w-50">
+            <input type="text" class="form-control" placeholder="검색..." id="subSearch">
+            <button class="btn btn-outline-secondary">조회</button>
+            <button class="btn btn-success">등록</button>
+            <button class="btn btn-primary">수정</button>
+            <button class="btn btn-danger">삭제</button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-hover mb-0" id="subTable">
+            <thead class="table-light">
+            <tr>
+              <th>코드</th>
+              <th>명칭</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- fetch API로 데이터 채움 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Master Code 목록 조회
+    async function loadMasterCodes() {
+        try {
+            const response = await fetch("/api/v1/system/code/parents", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pageable: {
+                        page: 1,
+                        pageSize: 10
+                    },
+                })
+            });
+
+            const result = await response.json();
+
+            // 서버 응답 구조가 ContentsResponse<OperationResponse>니까
+            // result.data 안에 SearchResponse<CodeDetail> 이 들어있을 가능성이 높음
+            const data = result.data?.contents || [];
+
+            const tbody = document.querySelector("#masterTable tbody");
+            tbody.innerHTML = "";
+
+            data.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td>${item.codeValue}</td><td>${item.description}</td>`;
+                tr.addEventListener("click", () => loadSubCodes(item.codeValue));
+                tbody.appendChild(tr);
+            });
+
+        } catch (err) {
+            console.error("Error loading master codes:", err);
+        }
+    }
+
+    // Sub Code 목록 조회
+    async function loadSubCodes(masterCode) {
+        try {
+            // TODO: 실제 API 주소로 변경 필요
+            // const response = await fetch(`/api/v1/common-codes/${masterCode}/sub`);
+            // const data = await response.json();
+
+            // 샘플 데이터
+            const sampleData = {
+                M001: [
+                    { code: "S001", name: "일반회원" },
+                    { code: "S002", name: "기업회원" }
+                ],
+                M002: [
+                    { code: "S003", name: "신용카드" },
+                    { code: "S004", name: "계좌이체" }
+                ],
+                M003: [
+                    { code: "S005", name: "교육박람회" },
+                    { code: "S006", name: "산업전" }
+                ]
+            };
+
+            const data = sampleData[masterCode] || [];
+
+            const tbody = document.querySelector("#subTable tbody");
+            tbody.innerHTML = "";
+            data.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td>${item.code}</td><td>${item.name}</td>`;
+                tbody.appendChild(tr);
+            });
+        } catch (err) {
+            console.error("Error loading sub codes:", err);
+        }
+    }
+
+    // 페이지 로드 시 마스터 코드 조회
+    document.addEventListener("DOMContentLoaded", loadMasterCodes);
+</script>
+
+</body>
+</html>

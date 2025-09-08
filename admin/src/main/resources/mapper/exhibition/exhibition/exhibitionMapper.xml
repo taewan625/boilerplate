@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exporum.admin.domain.v1.exhibition.exhibition.mapper.ExhibitionMapper">
+    <insert id="createExhibition" parameterType="com.exporum.admin.domain.v1.exhibition.exhibition.model.ExhibitionCreateRequest" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[
+            INSERT INTO exhibition (
+                exhibition_code_id,
+                ksic_id,
+                year,
+                name
+            ) VALUES (
+                #{exhibitionCodeId},
+                #{ksicId},
+                #{year},
+                #{name}
+            )
+        ]]>
+    </insert>
+</mapper>

@@ -15,7 +15,7 @@ CLASS_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${PACKAGE_NAME:0:1})${PACKAGE_NAME:
 DATE=$(date '+%Y. %-m. %-d.')
 
 # 기본 경로 (프로젝트 루트 기준)
-BASE_DIR="$PROJECT/src/main/java/com/exporum/$PROJECT/domain/$PACKAGE_NAME"
+BASE_DIR="$PROJECT/src/main/java/com/exporum/$PROJECT/domain/v1/$PACKAGE_NAME"
 
 # 디렉토리 생성
 mkdir -p "$BASE_DIR/controller"
@@ -67,6 +67,7 @@ import lombok.RequiredArgsConstructor;
  */
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/v1")
 public class ${CLASS_NAME}RestController {
 }
 EOF

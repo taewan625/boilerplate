@@ -22,7 +22,7 @@ public class ContactService {
 
     private final ContactMapper contactMapper;
 
-    private final CodeService codeService;
+    //private final CodeService codeService;
 
     @Value("${ncp.mail.sender-email}")
     private String sender;
@@ -34,8 +34,8 @@ public class ContactService {
 
         NCPMailer.getInstance().enqueueMail(ContactusTemplate.builder()
                 .companyName(contact.getCompanyName())
-                .inquiryType(codeService.getCode(contact.getContactorCode()).getCodeName())
-                .massageAbout(codeService.getCode(contact.getMessageAboutCode()).getCodeName())
+                //.inquiryType(codeService.getCode(contact.getContactorCode()).getCodeName())
+                //.massageAbout(codeService.getCode(contact.getMessageAboutCode()).getCodeName())
                 .email(contact.getEmail())
                 .subject(contact.getTitle())
                 .message(contact.getContent())
