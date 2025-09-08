@@ -4,6 +4,7 @@ package com.exporum.admin.config.exception;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,21 +26,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class GlobalErrorController implements ErrorController {
-    /**
-     * 전역 에러 처리 메서드
-     *
-     * <p>
-     * 1. Thymeleaf 파일 없음 예외 → 준비중 페이지
-     * 2. 서버 오류(Exception 하위) → 5xx 에러 페이지
-     * 3. 나머지 → 4xx 에러 페이지 또는 URL 직접 접근
-     * </p>
-     *
-     * @param request HttpServletRequest - 에러 상태 코드와 예외 정보를 조회하기 위한 request 객체
-     * @return String - 이동할 Thymeleaf 경로
-     */
+
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
+        Object statusCodeObj = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+        Object exceptionObj = request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 
-        return "errors/not-ready";
+        Throwable cause = null;
+        if (exceptionObj instanceof Throwable t) {
+            cause = t;
+            // 래핑된 예외 확인
+            while (cause.getCause() != null) {
+                cause = cause.getCause();
+            }
+        }
+
+        // 최종 cause가 TemplateInputException인지 확인
+        if (cause instanceof org.thymeleaf.exceptions.TemplateInputException) {
+            return "errors/not-ready"; // 템플릿 관련 에러 페이지
+        }
+
+        // status code 기반 처리
+        if (statusCodeObj != null) {
+            int status = Integer.parseInt(statusCodeObj.toString());
+            if (status >= 500) return "errors/runtime-error";
+            if (status == 404) return "errors/not-found-error";
+            if (status >= 400) return "errors/bad-request-error";
+        }
+
+        return "errors/runtime-error";
     }
 }

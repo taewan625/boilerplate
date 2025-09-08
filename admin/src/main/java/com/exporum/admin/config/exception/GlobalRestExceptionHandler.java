@@ -13,7 +13,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.List;
@@ -28,30 +29,9 @@ import java.util.stream.Collectors;
  * @modified 2025-06-26 권태완 - RestController에서 동작하도록 분기 처리
  */
 
-@ControllerAdvice
-public class GlobalExceptionHandler {
-
+@RestControllerAdvice(annotations = RestController.class)
+public class GlobalRestExceptionHandler {
     /**
-     * view
-     * 404 Not Found 페이지 처리
-     * 브라우저에서 잘못된 URL 요청 시 호출
-     */
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public String handleNoHandlerFoundException() {
-        return "errors/not-found-error";
-    }
-
-    /**
-     * view
-     * 일반 런타임 예외 처리
-     */
-    @ExceptionHandler(Exception.class)
-    public String handleException() {
-        return "errors/runtime-error";
-    }
-
-    /**
-     * rest api
      * 서드파티 API 호출 실패 예외
      */
     @ExceptionHandler(ThirdPartyApiException.class)
@@ -109,7 +89,7 @@ public class GlobalExceptionHandler {
 
     /**
      * rest api
-     * SQL 문법 오류 (DB 관련)
+     * SQL 문법 오류
      */
     @ExceptionHandler(BadSqlGrammarException.class)
     public ResponseEntity<OperationResponse> handleBadSqlGrammar(BadSqlGrammarException ex) {
@@ -117,6 +97,7 @@ public class GlobalExceptionHandler {
         response.setMessage("SQL 문법 오류가 발생했습니다.");
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 
     /**
      * rest api
@@ -129,4 +110,5 @@ public class GlobalExceptionHandler {
         response.setMessage("알 수 없는 오류가 발생했습니다.");
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 }

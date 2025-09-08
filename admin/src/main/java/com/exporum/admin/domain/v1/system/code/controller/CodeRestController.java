@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  * @since 2025. 9. 8. 최초 작성
  */
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/system")
 public class CodeRestController {
